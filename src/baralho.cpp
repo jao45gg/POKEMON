@@ -25,5 +25,4 @@ string Baralho::getNome(){
 void Baralho::setNome(string nomeP){
     this->_nome = nomeP;
 };
-
 #endif

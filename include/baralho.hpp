@@ -18,5 +18,4 @@ class Baralho{
     string getNome();
     void setNome(string nomeP);
 };
-
 #endif

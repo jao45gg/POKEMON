@@ -4,6 +4,7 @@
 #include "baralho.hpp"
 #include "carta.hpp"
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ Baralho::Baralho(vector <Carta> cartasP, string nomeP){
 
 Baralho::~Baralho(){
     (this->_cartas).clear();
-    this->_nome = NULL;
+    this->_nome = "";
 };
 
 string Baralho::getNome(){

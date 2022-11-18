@@ -3,6 +3,7 @@
 
 #include "carta.hpp"
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -16,6 +17,6 @@ class Baralho{
     ~Baralho();
     string getNome();
     void setNome(string nomeP);
-}
+};
 
 #endif

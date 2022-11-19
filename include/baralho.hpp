@@ -1,7 +1,7 @@
 #ifndef BARALHO_HPP
 #define BARALHO_HPP
 
-#include "carta.hpp"
+#include "Cartas.hpp"
 #include <vector>
 #include <iostream>
 
@@ -9,7 +9,7 @@ using namespace std;
 
 class Baralho{
     protected:
-    vector <Carta> _cartas;
+    vector <Carta> _cartas (60);
     string _nome;
 
     public:

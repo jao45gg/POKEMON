@@ -1,13 +1,30 @@
 #ifndef _EFEITOS_HPP_
 #define _EFEITOS_HPP_
 
-Class Efeitos{
+#include <iostream>
 
-  protected:
-  string _nome_efeito;
-  public:
-  Efeitos();
-  
+using namespace std;
+
+class Efeitos {
+
+
+    //VARIAVEIS
+    protected:
+
+    string _nome;
+    int _duracao;
+
+    //METODOS
+    public:
+
+    void setNome(string nome);
+    string getNome();
+    void setDuracao(int duracao);
+    int getDuracao();
+
+
+    //Efeitos(string nome, unsigned int duracao);
+    //~Efeitos();
+
 };
-
 #endif

@@ -1,14 +1,14 @@
 #ifndef BARALHO_CPP
 #define BARALHO_CPP
 
-#include "baralho.hpp"
+#include "Baralho.hpp"
 #include "Cartas.hpp"
 #include <vector>
 #include <iostream>
 
 using namespace std;
 
-Baralho::Baralho(vector <Carta> cartasP, string nomeP){
+Baralho::Baralho(vector <Cartas> cartasP, string nomeP){
     this->_cartas = cartasP;
     this->_nome = nomeP;
 };

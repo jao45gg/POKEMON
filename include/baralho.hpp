@@ -11,7 +11,7 @@ class Baralho{
     protected:
     vector <Cartas> _cartas;
     string _nome;
-
+    string _cartas;
     public:
     Baralho(vector <Cartas> cartasP, string nomeP);
     ~Baralho();

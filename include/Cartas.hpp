@@ -3,8 +3,7 @@
 #include "Efeitos.hpp"
 #include "Habilidades.hpp"
 
-
-Class Cartas
+class Cartas
 {
   private:
   string *_nome_pokemon;

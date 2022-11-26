@@ -9,7 +9,7 @@ using namespace std;
 
 class Baralho{
     protected:
-    vector <Cartas> _cartas = {};
+    vector <Cartas> _cartas;
     string _nome;
     string _cartas;
     public:

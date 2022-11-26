@@ -1,7 +1,7 @@
 #ifndef BARALHO_CPP
 #define BARALHO_CPP
 
-#include "baralho.hpp"
+#include "Baralho.hpp"
 #include "Cartas.hpp"
 #include <vector>
 #include <iostream>

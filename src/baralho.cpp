@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Baralho::Baralho(vector <Carta> cartasP, string nomeP){
+Baralho::Baralho(vector <Cartas> cartasP, string nomeP){
     this->_cartas = cartasP;
     this->_nome = nomeP;
 };

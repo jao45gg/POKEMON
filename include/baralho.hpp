@@ -9,11 +9,11 @@ using namespace std;
 
 class Baralho{
     protected:
-    vector <Carta> _cartas (60);
+    vector <Cartas> _cartas = {};
     string _nome;
-
+    string _cartas;
     public:
-    Baralho(vector <Carta> cartasP, string nomeP);
+    Baralho(vector <Cartas> cartasP, string nomeP);
     ~Baralho();
     string getNome();
     void setNome(string nomeP);

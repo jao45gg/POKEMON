@@ -1,3 +1,7 @@
+#include <iostream>
+
+#include "Partida.hpp"
+
 int main()
 {
   

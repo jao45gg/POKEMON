@@ -7,15 +7,19 @@
 
 using namespace std;
 
-class Baralho{
-    protected:
-    vector <Cartas> _cartas;
+class Baralho
+{
+private:
+    vector<Cartas> _cartas;
     string _nome;
-    string _cartas;
-    public:
-    Baralho(vector <Cartas> cartasP, string nomeP);
+
+public:
+    Baralho(vector<Cartas> cartasP, string nomeP);
     ~Baralho();
     string getNome();
     void setNome(string nomeP);
+    Cartas getCarta(int num);
+    void removeCarta(string nome);
+    int getSize();
 };
 #endif

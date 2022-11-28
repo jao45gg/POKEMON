@@ -1,3 +1,6 @@
+#ifndef _EFEITOS_CPP
+#define _EFEITOS_CPP
+
 #include "../include/Efeitos.hpp"
 #include <iostream>
 
@@ -24,4 +27,5 @@ int Efeitos::getDuracao(){
 //}
 
 //Efeitos::~Efeitos(){}
-;
+
+#endif

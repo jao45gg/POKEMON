@@ -1,3 +1,6 @@
+#ifndef _USUARIO_CPP
+#define _USUARIO_CPP
+
 #include "../include/Usuario.hpp"
 
 Usuario::Usuario()
@@ -12,11 +15,11 @@ Usuario::~Usuario()
 {
 
 }
-Usuario::Usuario(std::string nome, int vitorias, int derrotas, std::vector<std::string> baralhos)
+Usuario::Usuario(std::string nome, int vitorias, int derrotas, std::vector<Baralho> baralhos)
 {
     this->nome = nome;
-    this->vitorias = vitorias;
-    this->derrotas = derrotas;
+    this->vitorias = 0;
+    this->derrotas = 0;
     this->baralhos = baralhos;
 }
 
@@ -31,17 +34,9 @@ int Usuario::getDerrotas()
 }
 void Usuario::setVitorias(int vitorias)
 {
-    this->vitorias = vitorias;
-}
-void Usuario::setDerrotas(int derrotas)
-{
-    this->derrotas = derrotas;
-}
-void Usuario::addVitoria()
-{
     this->vitorias++;
 }
-void Usuario::addDerrota()
+void Usuario::setDerrotas(int derrotas)
 {
     this->derrotas++;
 }
@@ -49,19 +44,11 @@ std::string Usuario::getNome()
 {
     return this->nome;
 }
-std::vector<std::string> Usuario::getBaralhos()
+std::vector<Baralho> Usuario::getBaralhos()
 {
     return this->baralhos;
 }
-void Usuario::setNome(std::string nome)
-{
-    this->nome = nome;
-}
-void Usuario::setBaralhos(std::vector<std::string> baralhos)
-{
-    this->baralhos = baralhos;
-}
-void Usuario::addBaralho(std::string baralho)
+void Usuario::setBaralhos(Baralho baralho)
 {
     this->baralhos.push_back(baralho);
 }
@@ -70,10 +57,12 @@ std::string Usuario::toString()
     std::string retorno = "Nome: " + this->nome + "\n";
     retorno += "Vitorias: " + std::to_string(this->vitorias) + "\n";
     retorno += "Derrotas: " + std::to_string(this->derrotas) + "\n";
-    retorno += "Baralhos: \n";
+    retorno += "Baralhos:";
     for (int i = 0; i < this->baralhos.size(); i++)
     {
-        retorno += this->baralhos[i] + "\n";
+        retorno += this->baralhos[i].getNome() + "\n";
     }
     return retorno;
 }
+
+#endif

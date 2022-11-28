@@ -13,21 +13,30 @@ class Cartas
   Habilidades *_habilidades;
   int *_hp;
   Efeitos *_efeitos;
+  bool energiaLigada;
+  bool cartaEnergiaUsada;
 
   public:
   Cartas(string nome, int ataque, int defesa, string tipo, 
-  Habilidades habilidades, int hp, Efeitos efeitos);
+  Habilidades *habilidades, int hp, Efeitos efeitos);
+  Cartas(string nome, int ataque, int defesa, string tipo, 
+  int hp, Efeitos efeitos);
+  Cartas(string nome, int ataque, int defesa, string tipo, 
+  Habilidades *habilidades, int hp);
+  Cartas(string nome, int ataque, int defesa, string tipo, 
+  int hp);
+  Cartas(string tipo);
   ~Cartas();
   string getNome();
   int getAtaque();
   int getDefesa();
-  int getTipo();
+  string getTipo();
   int getHp();
   string sobEfeitos();
   Efeitos* getEfeitos();
   Habilidades* getHabilidade();
+  void ligarEnergia(Cartas *cartaEnergia, Cartas *pokemon);
     
 };
-
 
 #endif

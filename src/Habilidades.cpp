@@ -1,3 +1,6 @@
+#ifndef _HABILIDADES_CPP
+#define _HABILIDADES_CPP
+
 #include "../include/Habilidades.hpp"
 #include <iostream>
 
@@ -16,3 +19,5 @@ Efeitos* Habilidades::getEfeito(){
 int Habilidades:: gettempoRecarga(){
     return _tempoRecarga;
 }
+
+#endif

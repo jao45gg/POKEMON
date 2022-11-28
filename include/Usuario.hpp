@@ -1,32 +1,29 @@
-#ifndef A61B27DE_D312_4C7D_8ADC_7BC7800F8AEB
-#define A61B27DE_D312_4C7D_8ADC_7BC7800F8AEB
+#ifndef _USUARIO_HPP
+#define _USUARIO_HPP
 #include <string>
 #include <vector>
+#include <Baralho.hpp>
 
 class Usuario
 {
 public:
     Usuario();
-    Usuario(std::string nome, int vitorias, int derrotas, std::vector<std::string> baralhos);
+    Usuario(std::string nome, int vitorias, int derrotas, std::vector<Baralho> baralhos);
     ~Usuario();
 
     std::string getNome();
     int getVitorias();
     int getDerrotas();
-    std::vector<std::string> getBaralhos();
-    void setNome(std::string nome);
+    std::vector<Baralho> getBaralhos();
     void setVitorias(int vitorias);
     void setDerrotas(int derrotas);
-    void setBaralhos(std::vector<std::string> baralhos);
-    void addVitoria();
-    void addDerrota();
-    void addBaralho(std::string baralho);
+    void setBaralhos(Baralho baralhos);
     std::string toString();
    private:
     std::string nome;
     int vitorias;
     int derrotas;
-    std::vector<std::string> baralhos;
+    std::vector<Baralho> baralhos;
 };
      
 #endif 

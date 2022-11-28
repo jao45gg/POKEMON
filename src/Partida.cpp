@@ -45,7 +45,7 @@ Partida::~Partida() {
     _nomeBaralhoJogador = "";
     _nomeBaralhoBot = "";
 }
-
+//teste
 void Partida::comprarCarta(Usuario *atacante) {
     if(atacante->getNome() == _jogador->getNome()) {
         mao_jogador.push_back(_baralhoJogador->getCarta(rand()%(_baralhoJogador->getSize()+1)));

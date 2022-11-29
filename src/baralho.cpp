@@ -36,19 +36,23 @@ Cartas Baralho::getCarta(int num)
     }
 };
 
-void Baralho::removeCarta(string nome) {
+void Baralho::removeCarta(string nome)
+{
     bool control = true;
     int ie = 0;
-    for(auto i = _cartas.begin(); control; i++) {
-        if(_cartas.at(ie).getNome() == nome) {
+    for (auto i = _cartas.begin(); control; i++)
+    {
+        if (_cartas.at(ie).getNome() == nome)
+        {
             _cartas.erase(i);
             break;
         }
-        ie++;     
+        ie++;
     }
 }
 
-int Baralho::getSize() {
+int Baralho::getSize()
+{
     return _cartas.size();
 }
 

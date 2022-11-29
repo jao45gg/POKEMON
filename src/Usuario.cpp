@@ -2,6 +2,7 @@
 #define _USUARIO_CPP
 
 #include "../include/Usuario.hpp"
+#include <fstream>
 
 Usuario::Usuario()
 {
@@ -13,14 +14,42 @@ Usuario::Usuario()
 
 Usuario::~Usuario()
 {
-
 }
-Usuario::Usuario(std::string nome, int vitorias, int derrotas, std::vector<Baralho> baralhos)
+Usuario::Usuario(std::string nome)
 {
     this->nome = nome;
     this->vitorias = 0;
     this->derrotas = 0;
-    this->baralhos = baralhos;
+    vector<Cartas> cartasExistentes;
+
+    std::ifstream myfile;
+    myfile.open("pokemons.txt");
+    std::string nome_pokemon;
+    int ataque;
+    int defesa;
+    string tipo;
+    int hp;
+    if (myfile.is_open())
+    {
+        while (myfile)
+        {
+            std::getline(myfile, nome_pokemon);
+            myfile >> ataque;
+            myfile >> defesa;
+            std::getline(myfile, tipo);
+            myfile >> hp;
+            cartasExistentes.push_back(Cartas(nome_pokemon, ataque, defesa, tipo, hp));
+        }
+    }
+    else
+        std::cout << "Falha ao abrir o arquivo \n";
+
+    string nomeBaralho;
+    cout << "Qual será o nome do baralho?\n";
+    cin >> nomeBaralho;
+    vector<Cartas> cartasP;
+    Baralho b = Baralho(cartasP, nomeBaralho, cartasExistentes); // funcionará com o prox atualizacao de baralho
+    baralhos.push_back(b);
 }
 
 int Usuario::getVitorias()

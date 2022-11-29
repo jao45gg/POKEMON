@@ -8,7 +8,7 @@ class Usuario
 {
 public:
     Usuario();
-    Usuario(std::string nome, int vitorias, int derrotas, std::vector<Baralho> baralhos);
+    Usuario(std::string nome);
     ~Usuario();
 
     std::string getNome();
@@ -19,11 +19,12 @@ public:
     void setDerrotas(int derrotas);
     void setBaralhos(Baralho baralhos);
     std::string toString();
-   private:
+
+private:
     std::string nome;
     int vitorias;
     int derrotas;
     std::vector<Baralho> baralhos;
 };
-     
-#endif 
+
+#endif

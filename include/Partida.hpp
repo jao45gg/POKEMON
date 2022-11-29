@@ -9,21 +9,19 @@ using namespace std;
 class Partida
 {
 private:
-   Usuario *_jogador;
-   Usuario *_bot;
-   Baralho *_baralhoJogador;
-   Baralho *_baralhoBot;
-   vector <Cartas> mao_jogador;
-   vector <Cartas> mao_bot;
-   string _nomeBaralhoJogador, _nomeBaralhoBot;
-   Cartas pokemonJogador;
-   Cartas podemonBot;
+    Usuario *_jogador;
+    Usuario *_bot;
+    Baralho *_baralhoJogador;
+    Baralho *_baralhoBot;
+    vector<Cartas> mao_jogador;
+    vector<Cartas> mao_bot;
+    string _nomeBaralhoJogador, _nomeBaralhoBot;
+
 public:
     Partida(Usuario *jogador, Usuario *bot, string nomeBaralhoJogador, string nomeBaralhoBot);
     ~Partida();
     void comprarCarta(Usuario *atacante);
-    void usarHabilidade(string *cartaFazendo, Usuario *atacante);
-    void Ataque(string *cartaAtacando, Usuario *atacante);
+    void Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *atacante);
     void _ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *atacante);
 };
 

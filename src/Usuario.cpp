@@ -25,6 +25,7 @@ Usuario::Usuario(std::string nome)
     std::ifstream myfile;
     myfile.open("pokemons.txt");
     std::string nome_pokemon;
+    int qtnd_atks;
     int ataque;
     int defesa;
     string tipo;
@@ -34,11 +35,12 @@ Usuario::Usuario(std::string nome)
         while (myfile)
         {
             std::getline(myfile, nome_pokemon);
+            myfile >> qtnd_atks;
             myfile >> ataque;
             myfile >> defesa;
             std::getline(myfile, tipo);
             myfile >> hp;
-            cartasExistentes.push_back(Cartas(nome_pokemon, ataque, defesa, tipo, hp));
+            cartasExistentes.push_back(Cartas(nome_pokemon, qtnd_atks, ataque, defesa, tipo, hp));
         }
     }
     else

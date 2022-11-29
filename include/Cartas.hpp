@@ -9,6 +9,7 @@ class Cartas
 {
 private:
   string *_nome_pokemon;
+  int *_qtnd_atks;
   int *_ataque;
   int *_defesa;
   string *_tipo;
@@ -17,7 +18,7 @@ private:
   bool cartaEnergiaUsada;
 
 public:
-  Cartas(string nome, int ataque, int defesa, string tipo,
+  Cartas(string nome, int qtnd_atks, int ataque, int defesa, string tipo,
          int hp);
   Cartas(string tipo);
   ~Cartas();

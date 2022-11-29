@@ -3,10 +3,13 @@
 
 #include "../include/Cartas.hpp"
 
-Cartas::Cartas(string nome, int ataque, int defesa, string tipo, int hp)
+Cartas::Cartas(string nome, int qtnd_atks, int ataque, int defesa, string tipo, int hp)
 {
   _nome_pokemon = new string;
   *_nome_pokemon = nome;
+  //
+  _qtnd_atks = new int;
+  *_qtnd_atks = qtnd_atks;
   //
   _ataque = new int;
   *_ataque = ataque;
@@ -27,6 +30,8 @@ Cartas::Cartas(string nome, int ataque, int defesa, string tipo, int hp)
 Cartas::Cartas(string tipo)
 {
   _nome_pokemon = nullptr;
+  //
+  _qtnd_atks = nullptr;
   //
   _ataque = nullptr;
   //

@@ -14,7 +14,9 @@ private:
     string _nome;
 
 public:
+    Baralho();
     Baralho(vector<Cartas> &cartasP, string nomeP, vector<Cartas> &cartasExistentes);
+    Baralho operator=()
     ~Baralho();
     string getNome();
     void setNome(string nomeP);

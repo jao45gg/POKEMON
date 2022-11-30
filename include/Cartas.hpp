@@ -10,9 +10,10 @@ using namespace std;
 class Cartas
 {
 private:
+
   string *_nome_pokemon;
   int *_qtnd_atks;
-  vector<pair<string,int>> _ataque;
+  vector<pair<string, int>> _ataque;
   int *_defesa;
   string *_tipo;
   int *_hp;
@@ -20,16 +21,17 @@ private:
   bool cartaEnergiaUsada;
 
 public:
-  Cartas(string nome, int qtnd_atks, vector<pair<string,int>> ataque, int defesa, string tipo,
+
+  Cartas(string nome, int qtnd_atks, vector<pair<string, int>> ataque, int defesa, string tipo,
          int hp);
   Cartas(string tipo);
   ~Cartas();
   string getNome();
-  pair<string,int> getAtaque(int seleciona_atks);
+  pair<string, int> getAtaque(int seleciona_atks);
   int getDefesa();
   string getTipo();
   int getHp();
-  vector<pair<string,int>> Cartas::getAtaques();
+  vector<pair<string, int>> Cartas::getAtaques();
   void ligarEnergia(Cartas *cartaEnergia, Cartas *pokemon);
   void sofrerDano(int dano);
   bool getEnergia();

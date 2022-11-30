@@ -17,10 +17,10 @@ Baralho::Baralho()
 Baralho::Baralho(string nomeP, vector<Cartas> &cartasExistentes)
 {
     this->_nome = nomeP;
-    //REPETIR O CICLO ENQUANTO O BARALHO NÃO ATINGIR SEU TAMANHO CORRETO
+    // REPETIR O CICLO ENQUANTO O BARALHO NÃO ATINGIR SEU TAMANHO CORRETO
     while (((this->_cartas).size()) <= 60)
     {
-        //PEDE O NOME DA CARTA QUE SE QUER ADICIONAR AO BARALHO
+        // PEDE O NOME DA CARTA QUE SE QUER ADICIONAR AO BARALHO
         string nomeCarta;
         cin >> nomeCarta;
         int numCartasRep = 0;
@@ -28,25 +28,24 @@ Baralho::Baralho(string nomeP, vector<Cartas> &cartasExistentes)
         bool adicionouCarta = false;
         bool estourouLimite = false;
 
-        //VERIFICA SE EXISTE UMA CARTA DE MESMO NOME NO BARALHO DE CARTAS ADICIONAVEIS
+        // VERIFICA SE EXISTE UMA CARTA DE MESMO NOME NO BARALHO DE CARTAS ADICIONAVEIS
         for (int j = 0, je = (cartasExistentes.size()); j < je; j++)
         {
-            string *procuraNome = ((cartasExistentes.at(j)).getNome());
-            if (nomeCarta == *procuraNome)
+            string procuraNome = ((cartasExistentes.at(j)).getNome());
+            if (nomeCarta == procuraNome)
             {
-                //CASO EXISTA UMA CARTA DE MESMO NOME NO BARALHO DE CARTAS ADICIONAVEIS
-                //VERIFICA-SE SE JA NAO EXISTEM 4 REPETICOES DESSA CARTA NO BARALHO QUE ESTA SENDO CRIADO
+                // CASO EXISTA UMA CARTA DE MESMO NOME NO BARALHO DE CARTAS ADICIONAVEIS
+                // VERIFICA-SE SE JA NAO EXISTEM 4 REPETICOES DESSA CARTA NO BARALHO QUE ESTA SENDO CRIADO
                 for (int k = 0, ke = ((this->_cartas).size()); k < ke; k++)
                 {
-                    //PERCORRE O BARALHO QUE ESTA SENDO CRIADO COMPARANDO O NOME DAS CARTAS COM O ESCRITO
-                    string *nomeDessaCarta = ((_cartas.at(k)).getNome());
-                    if (nomeCarta == *nomeDessaCarta)
+                    // PERCORRE O BARALHO QUE ESTA SENDO CRIADO COMPARANDO O NOME DAS CARTAS COM O ESCRITO
+                    string nomeDessaCarta = _cartas.at(k).getNome();
+                    if (nomeCarta == nomeDessaCarta)
                     {
                         numCartasRep++;
                     }
-                    delete nomeDessaCarta;
                 }
-                //CASO TENHAM MENOS DE 4 APARICOES PERMITE O PUSHBACK
+                // CASO TENHAM MENOS DE 4 APARICOES PERMITE O PUSHBACK
                 if (numCartasRep < 4)
                 {
                     (this->_cartas).push_back(cartasExistentes.at(j));
@@ -54,16 +53,17 @@ Baralho::Baralho(string nomeP, vector<Cartas> &cartasExistentes)
                     adicionouCarta = true;
                     break;
                 }
-                //DO CONTRARIO NAO PERMITE
-                else if(numCartasRep >= 4){
+                // DO CONTRARIO NAO PERMITE
+                else if (numCartasRep >= 4)
+                {
                     cout << "Essa carta atingiu o limite maximo de repeticoes por baralho" << endl;
                     estourouLimite = true;
                     break;
                 }
             }
-            delete procuraNome;
-            //CONDICAO PRA PARAR DE PERCORRER O BARALHO ADICIONAVEL POIS JA DEU PUSHBACK NA CARTA CERTA
-            if(adicionouCarta || estourouLimite){
+            // CONDICAO PRA PARAR DE PERCORRER O BARALHO ADICIONAVEL POIS JA DEU PUSHBACK NA CARTA CERTA
+            if (adicionouCarta || estourouLimite)
+            {
                 break;
             }
         }
@@ -80,17 +80,18 @@ Baralho::~Baralho()
     this->_nome = "";
 };
 
-
 string Baralho::getNome()
 {
     return this->_nome;
 };
 
-vector<Cartas> Baralho::getCartasBaralho(){
+vector<Cartas> Baralho::getCartasBaralho()
+{
     return (this->_cartas);
 }
 
-void Baralho::operator=(Baralho &operando){
+void Baralho::operator=(Baralho &operando)
+{
     this->_nome = (operando.getNome());
     this->_cartas = (operando.getCartasBaralho());
 }

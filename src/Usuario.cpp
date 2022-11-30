@@ -3,6 +3,9 @@
 
 #include "../include/Usuario.hpp"
 #include <fstream>
+#include <stdio.h>
+#include <iostream>
+#include <sstream>
 
 Usuario::Usuario()
 {
@@ -14,33 +17,67 @@ Usuario::Usuario()
 
 Usuario::~Usuario()
 {
+    this->nome = "";
+    vitorias = 0;
+    derrotas = 0;
+    baralhos.clear();
 }
+
 Usuario::Usuario(std::string nome)
 {
     this->nome = nome;
     this->vitorias = 0;
     this->derrotas = 0;
-    vector<Cartas> cartasExistentes;
 
-    std::ifstream myfile;
+    ifstream myfile;
     myfile.open("pokemons.txt");
-    std::string nome_pokemon;
+    
+    vector<Cartas> cartasExistentes;
+    string nome_pokemon;
     int qtnd_atks;
-    int ataque;
+    vector<pair<string, int> > ataque;
     int defesa;
     string tipo;
     int hp;
+
     if (myfile.is_open())
     {
+        int i = 0;
         while (myfile)
         {
-            std::getline(myfile, nome_pokemon);
-            myfile >> qtnd_atks;
-            myfile >> ataque;
-            myfile >> defesa;
-            std::getline(myfile, tipo);
-            myfile >> hp;
-            cartasExistentes.push_back(Cartas(nome_pokemon, qtnd_atks, ataque, defesa, tipo, hp));
+            getline(myfile, nome_pokemon), '\n';
+
+            string tmp,nome_atk;
+            int dano;
+
+            getline(myfile, tmp);
+            sscanf(tmp.c_str(), "%d", &qtnd_atks);
+            
+            for (int i = 0, ie = qtnd_atks; i < ie; i++)
+            {
+                string line, tmp;
+                getline(myfile, line);
+                istringstream iss(line);
+                getline(iss, nome_atk, ':');
+
+                getline(iss, tmp, '\n');
+                istringstream(tmp) >> dano;
+
+                pair<string, int> foo;
+                foo = make_pair(nome_atk, dano);
+                ataque.push_back(foo);
+            }
+            
+            getline(myfile, tmp);
+            sscanf(tmp.c_str(), "%d", &defesa);
+
+            getline(myfile, tipo);
+
+            getline(myfile, tmp);
+            sscanf(tmp.c_str(), "%d", &hp);
+
+            cartasExistentes.push_back(Cartas (nome_pokemon, qtnd_atks, ataque, defesa, tipo, hp));
+         
         }
     }
     else
@@ -49,9 +86,7 @@ Usuario::Usuario(std::string nome)
     string nomeBaralho;
     cout << "Qual será o nome do baralho?\n";
     cin >> nomeBaralho;
-    vector<Cartas> cartasP;
-    Baralho b = Baralho(cartasP, nomeBaralho, cartasExistentes); // funcionará com o prox atualizacao de baralho
-    baralhos.push_back(b);
+    baralhos.push_back(Baralho (nomeBaralho, cartasExistentes));
 }
 
 int Usuario::getVitorias()

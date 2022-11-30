@@ -1,0 +1,797 @@
+Bulbasaur
+2
+Chicote de vinha: 10
+Folha navalha: 20
+15
+Planta 
+70
+Ivysaur 
+2
+Folha navalha: 30
+Chicote tóxico: 50
+25
+Planta 
+100
+Venusaur 
+2
+Pólen perigoso: 50
+Raio solar: 150
+50
+Planta 
+270 
+Oddish 
+2
+Esporos atordoantes: 10
+Bomba de semente: 10
+5
+Planta 
+50
+Gloom 
+2
+Aroma fedido: 30
+Folha navalha: 30
+10
+Planta 
+80
+Vileplume
+2 
+Choque calmante: 60
+Pólen nojento: 30
+20
+Planta 
+140
+Paras 
+1
+Arranhão: 30
+20
+Planta
+60
+Parasect 
+2
+Habilidades: 40
+Dreno de cogumelo: 70
+50
+Planta
+110
+Bellsprout 
+1
+Chicote de vinha: 30
+5
+Planta 
+60
+Weepinbell 
+2
+Veneno abrasador: 15
+Aríete: 30
+10
+Planta
+80
+Victreebel 
+2
+Veneno reativo: 60
+Ácido corrosivo: 80
+20
+Planta
+Chikorita 
+2
+Síntese: 10
+Folha navalha: 20 
+5
+Planta
+60
+Bayleef 
+2
+Odor calmante: 30
+Folha navalha: 50 
+10
+Planta
+100
+Meganium 
+2
+Ervamadurecimento veloz: 90
+Raio solar: 110
+50
+Planta 
+150
+Celebi 
+2
+Passeio o bosque: 30
+Passo de folha: 40
+20
+Planta
+70
+Treecko 
+2
+Estalo: 10
+Veneno sonífero: 20
+10
+Planta
+50
+Grovyle 
+2
+Lamina da folhas: 20
+Lamina fatiante: 40
+20
+Planta
+80
+Sceptile 
+2
+Natureza poderosa: 50
+Corte supersônico: 60
+40
+Planta
+140
+Lotad 
+2
+Minidreno: 10
+Chamar a família: 20
+10
+Planta
+60
+Lombre 
+2
+Onda borrifante: 50
+Entrada superior: 60
+30
+Planta
+90
+Ludicolo 
+2
+Ofensiva espirituosa: 80
+Megadreno: 120
+80
+Planta
+160
+Shroomish 
+2
+Pó venenoso: 10
+Absorção: 20
+10
+Planta
+60
+Breloom 
+2
+Esporos hibernais: 50
+Soco Magnum: 80
+60
+Planta
+110
+Tangela 
+2
+Aprisionamento: 10
+Tapinha: 10
+20
+Planta
+80
+Tangrowth
+2
+Nó de grama: 20 
+Gigadreno:30
+50
+Planta 
+140
+Charmander 
+1
+Presas de fogo:20
+5
+Fogo
+70
+Charmeleon 
+2
+Lutador em chamas: 60
+Lança-chamas: 80
+60
+Fogo
+100
+Charizard 
+2
+Intuição de batalha: 70
+Labareda real: 100
+70
+Fogo
+170
+
+
+Vulpix 
+2
+Cauda chicote: 20
+Carvão vivo: 30
+10
+Fogo
+60
+Ninetales 
+2
+Feitiço: 50
+Crina de fogo: 70
+20
+Fogo
+120
+Growlithe 
+2
+Farejador: 70
+Garras de fogo: 60
+40
+Fogo
+80
+Arcanine
+1 
+Tempestade de fogo: 190
+90
+Fogo
+140
+Ponyta 
+2
+Pisotear: 40
+Desmantelar: 50
+30
+Fogo
+70
+Rapidash
+2
+Impulso de calor: 50
+Crina de fogo: 60
+50
+Fogo
+100
+Cyndaquil 
+1
+Carvão vivo: 10
+5
+Fogo
+60
+Quilava 
+1
+Investida: 20
+10
+Fogo
+90
+Typhlosion 
+2
+Energia flamejante: 100
+Chama perdida: 120
+90
+Fogo
+160
+Ho-Oh
+2
+Fogo sagrado: 100
+Rajada de fogo: 120
+100
+Fogo
+130
+Torchic
+2
+Chamar família: 30
+Carvão vivo: 10
+5
+Fogo
+60
+Combusken 
+1
+Bico de calor: 40 
+20
+Fogo
+80
+Blaziken 
+2
+Tipo duplo: 100
+Unidade turbo:130
+50
+Fogo
+170
+Numel 
+2
+Pisotear: 60
+Lança-chamas: 80
+30
+Fogo
+80
+Camerupt 
+2
+Bomba dividida: 90
+Chama cauterizante: 120
+50
+Fogo
+140
+Chimchar 
+1
+Chama: 20
+5
+Fogo
+40
+Monferno 
+1
+Lança-chamas: 50
+20
+Fogo
+80
+Infernape 
+1
+Soco rajada: 150
+40
+Fogo
+130
+Litten 
+2
+Retaliar: 40
+Combustão: 30
+20
+Fogo
+70
+Torracat
+1
+Lança-chamas: 90
+60
+Fogo
+90
+Incineroar
+1
+Lariat escuro: 100
+70
+Fogo
+160  
+Squirtle  
+1
+Revolver de água: 20
+10
+Água
+70
+Wartortle
+2
+Cachoeira: 70
+Carapaça sólida: 60
+35
+Água
+70
+Blastoise
+2
+Tormenta poderosa: 100
+Investida de água: 150
+75
+Água
+160
+Poliwag 
+1
+Evasão de borrifada: 10 
+5
+Água
+60
+Poliwhirl
+1 
+Onda borrifante: 60
+20
+Água
+90
+Poliwrath 
+1
+Borrifada em loop: 160
+50
+Água 
+150
+Tentacool
+1
+Choque de lama: 10
+2
+Água
+60
+Tentacruel 
+2
+Tentáculos furiosos: 20
+Ferrão venenoso: 30
+10
+Água
+110
+Slowpoke 
+2
+Bocejo: 50
+Surra de cauda: 30
+20
+Água
+70
+Slowbro
+2
+Inspiração crepúsculo: 90
+Aposta tripla: 100
+50
+Água
+120
+Seel
+1
+Chuva borrifante: 20 
+20
+Água
+70
+Dewgong 
+1
+Surra de cauda: 60
+60
+Água
+120
+Goldeen
+1
+Ataque de chifre: 10
+5
+Água
+70
+Seaking 
+2
+Chifre acentuado: 30
+Perfurar: 50
+25
+Água
+100
+Staryu 
+2
+Água entorpecedora: 10
+Ataque giratório: 10
+2
+Água
+50
+Starmie 
+2
+Onda estranha: 30
+Ataque giratório: 40 
+22
+Água
+80
+Magikarp
+1
+Evasão de borrifada: 5
+2
+Água
+20
+Gyarados 
+2
+Comoção: 190
+Tempestade enorme: 200
+80
+Água
+180  
+Totodile 
+2
+Golpes de fúria: 10
+Mordida: 20
+10
+Água
+60
+Croconaw 
+1
+Mordida: 60
+30
+Água
+90
+Feraligatr 
+2
+Aguaceiro: 60
+Mastigada: 80
+40
+Água 
+160
+Mudkip 
+1
+Reservatório de água: 10
+5
+Água 
+70
+Marshtomp 
+1
+Água barrenta: 20
+10
+Água
+90
+Swampert
+1
+Maremoto: 180
+60
+Água
+170
+Geodude
+2
+Autodestruição: 30
+Rolagem: 40
+40
+Terra
+60
+Graveler
+1
+Rolagem: 90
+90
+Terra 
+110
+Golem
+1
+Aperto de terra: 140
+100
+Terra
+170
+Onix
+1
+Lançamento de rocha: 60
+100
+Terra
+110
+Steelix
+1
+Terremoto: 120
+250
+Terra
+180
+Kabuto 
+1
+Colisão de carapaça: 40
+20
+Terra
+90
+Kabutops 
+1
+Deslize de pedras: 80
+40
+Terra
+140
+Rhyhorn 
+1
+Martelada: 30
+30
+Terra
+100
+Rhydon
+1
+Deslize de pedras: 100 
+100
+Terra
+120
+Rhyperior
+1
+Tremor de rocha: 120
+Desabamento de pedras: 90
+120
+Terra
+190
+Aerodactyl 
+2
+Supersônico: 80
+Caninos fossilizados: 90
+90
+Terra
+130
+Larvitar
+1
+Perfurar: 20 
+20
+Terra
+70
+Pupitar 
+1
+Evolução a jato: 40
+60
+Terra
+80
+Tyranitar
+1
+Tacada montanhosa: 250
+250
+Terra
+180
+Aron
+1
+Cabeçada: 20
+30
+Terra
+70
+Lairon
+1
+Bote: 50
+70
+Terra
+100
+Aggron
+1
+Pisada gigatônica: 160
+180
+Terra
+160
+Roggenrola 
+1
+Golpe de colisão rolante: 20 
+20
+Terra
+70
+Boldore 
+1
+Rocha esmagadora: 60 
+70
+Terra
+110
+Gigalith 
+1
+Disparo pressurizado: 180
+200
+Terra
+180
+Dwebble 
+1
+Fincar garras: 10
+30
+Terra
+70
+Crustle  
+1
+Martelada: 130
+140
+Terra 
+130
+Rolycoly 
+1
+Aríete: 10
+30
+Terra
+70
+Carkol 
+1
+Choque de calor: 60
+80
+Terra
+100
+Coalossal 
+1
+Avalanche flamejante: 130
+150
+Terra
+160
+Pichu
+1
+Choque: 10 
+5
+Elétrico
+30
+Pikachu 
+2
+Trovão: 70
+Relâmpago: 80
+30
+Elétrico
+70
+Raichu 
+2
+Ataque rápido: 80
+Surfista elétrico: 100 
+50
+Elétrico
+110
+Magnemite
+2
+Imã buscador: 5
+Investida: 10
+5
+Elétrico
+60
+Magneton
+1 
+Canhão zap: 80
+20
+Elétrico 
+80
+Magnezone 
+2
+Círculo magnético: 100
+Canhão zap: 130
+70
+Elétrico 
+150
+Voltorb
+2
+Elétrons flutuantes: 10
+Trovoada de choques: 20 
+10
+Elétrico 
+50
+Electrode 
+2
+Colecionador de esferas: 60
+Golpe rolador: 70
+30
+Elétrico
+90
+Elekid
+1
+Choque: 20
+10
+Elétrico
+50
+Electabuzz 
+2
+Trovoada de choques: 60
+Lesma elétrica: 70
+30
+Elétrico 
+80
+Electivire
+Gigaimpacto: 80
+Raio elétrico: 90 
+40 
+Elétrico 
+140
+Zapdos
+2
+Carga de pernas fortes: 60
+Chute elétrico: 70 
+30
+Elétrico
+110
+Eevee 
+1
+Chute sem pontaria: 30
+10
+Elétrico
+60
+Jolteon
+2
+Energizar: 100
+Trovão: 160
+50
+Elétrico
+100
+Chinchou
+2
+Procurar luz: 15
+Bola elétrica: 30 
+5
+Elétrico
+70
+Lanturn 
+2
+Raio de confusão: 50
+Faísca de água: 60
+20
+Elétrico
+110
+Zekrom 
+1
+Choque selvagem: 130
+50
+Elétrico
+130
+Mareep 
+1
+Choque elétrico: 20
+10
+Elétrico
+60
+Flaaffy 
+1
+Bola elétrica: 50
+20
+Elétrico
+90
+Ampharos 
+1
+Bola eletricidade 130
+50
+Elétrica
+150
+Shinx  
+1
+Sob pressão: 10
+2
+Elétrico
+60
+Luxio 
+1
+Chute zap: 30
+5
+Elétrico
+90
+Luxray 
+2
+Reide: 100
+Raio de cabeça: 120
+50
+Elétrico
+160
+Thundurus
+2
+Faísca auxiliar: 100
+Trovão: 130
+60
+Elétrico
+120 

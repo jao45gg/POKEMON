@@ -3,7 +3,7 @@
 
 #include "../include/Cartas.hpp"
 
-Cartas::Cartas(string nome, int qtnd_atks, int ataque, int defesa, string tipo, int hp)
+Cartas::Cartas(string nome, int qtnd_atks, vector<pair<string,int>>ataque, int defesa, string tipo, int hp)
 {
   _nome_pokemon = new string;
   *_nome_pokemon = nome;
@@ -11,8 +11,27 @@ Cartas::Cartas(string nome, int qtnd_atks, int ataque, int defesa, string tipo, 
   _qtnd_atks = new int;
   *_qtnd_atks = qtnd_atks;
   //
-  _ataque = new int;
-  *_ataque = ataque;
+  
+  for(int i=0; i<qtnd_atks; i++)
+  {
+    
+    if(ataque[i].second>=0 && ataque[i].second<=400)
+    {
+      _ataque.push_back(ataque[i]);
+    }
+    else if(ataque[i].second<0)
+    {
+      pair<string, int>aux=ataque[i];
+      aux.second=0;
+      _ataque.push_back(aux);
+    }
+    else if(ataque[i].second>400)
+    {
+      pair<string, int>aux=ataque[i];
+      aux.second=400;
+      _ataque.push_back(aux);
+    }
+  }
   //
   _defesa = new int;
   *_defesa = defesa;
@@ -49,18 +68,25 @@ Cartas::Cartas(string tipo)
 Cartas::~Cartas()
 {
   delete _nome_pokemon;
-  delete _ataque;
   delete _defesa;
   delete _tipo;
   delete _hp;
+  delete _qtnd_atks;
 }
 string Cartas::getNome()
 {
   return *_nome_pokemon;
 }
-int Cartas::getAtaque()
+vector<pair<string,int>> Cartas::getAtaques()
 {
-  return *_ataque;
+  return _ataque;
+}
+pair<string,int> Cartas::getAtaque(int seleciona_atks)
+{
+  if(seleciona_atks>=0 && seleciona_atks<*_qtnd_atks)
+  {
+    return _ataque[seleciona_atks];
+  }
 }
 int Cartas::getDefesa()
 {

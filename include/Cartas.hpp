@@ -27,11 +27,11 @@ public:
   Cartas(string tipo);
   ~Cartas();
   string getNome();
-  pair<string, int> getAtaque(int seleciona_atks);
+  pair<string, int> getAtaque(string nome_atk);
   int getDefesa();
   string getTipo();
   int getHp();
-  vector<pair<string, int>> Cartas::getAtaques();
+  vector<pair<string, int>> getAtaques();
   void ligarEnergia(Cartas *cartaEnergia, Cartas *pokemon);
   void sofrerDano(int dano);
   bool getEnergia();

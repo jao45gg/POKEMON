@@ -2,7 +2,7 @@
 #define _USUARIO_HPP
 #include <string>
 #include <vector>
-#include <Baralho.hpp>
+#include <baralho.hpp>
 
 class Usuario
 {
@@ -16,8 +16,8 @@ public:
     int getVitorias();
     int getDerrotas();
     std::vector<Baralho> getBaralhos();
-    void setVitorias(int vitorias);
-    void setDerrotas(int derrotas);
+    void setVitorias();
+    void setDerrotas();
     void setBaralhos(Baralho baralhos);
     std::string toString();
 

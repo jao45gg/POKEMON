@@ -12,7 +12,7 @@ Usuario::Usuario()
     this->nome = "Jogador";
     this->vitorias = 0;
     this->derrotas = 0;
-    this->baralhos = {};
+    this->baralhos.clear();
 }
 
 Usuario::~Usuario()
@@ -42,10 +42,9 @@ Usuario::Usuario(std::string nome)
 
     if (myfile.is_open())
     {
-        int i = 0;
         while (myfile)
         {
-            getline(myfile, nome_pokemon), '\n';
+            getline(myfile, nome_pokemon);
 
             string tmp,nome_atk;
             int dano;
@@ -98,11 +97,11 @@ int Usuario::getDerrotas()
 {
     return this->derrotas;
 }
-void Usuario::setVitorias(int vitorias)
+void Usuario::setVitorias()
 {
     this->vitorias++;
 }
-void Usuario::setDerrotas(int derrotas)
+void Usuario::setDerrotas()
 {
     this->derrotas++;
 }

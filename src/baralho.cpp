@@ -1,7 +1,9 @@
 #ifndef _BARALHO_CPP
 #define _BARALHO_CPP
 
-#include "Baralho.hpp"
+#define NC 2
+
+#include "baralho.hpp"
 #include "Cartas.hpp"
 #include <vector>
 #include <iostream>
@@ -18,10 +20,11 @@ Baralho::Baralho(string nomeP, vector<Cartas> &cartasExistentes)
 {
     this->_nome = nomeP;
     // REPETIR O CICLO ENQUANTO O BARALHO NÃO ATINGIR SEU TAMANHO CORRETO
-    while (((this->_cartas).size()) <= 60)
+    while (((this->_cartas).size()) <= NC) // coloquei 2 so para agilizar nos testes
     {
         // PEDE O NOME DA CARTA QUE SE QUER ADICIONAR AO BARALHO
         string nomeCarta;
+        cout << "Digite o nome da carta que deseja adicionar ao baralho !\n";
         cin >> nomeCarta;
         int numCartasRep = 0;
         bool existeCarta = false;
@@ -119,10 +122,13 @@ void Baralho::removeCarta(string nome)
         if (_cartas.at(ie).getNome() == nome)
         {
             _cartas.erase(i);
+            control = false;
             break;
         }
         ie++;
     }
+    if(control)
+        cout << "Carta não encontrada para remover!\n";
 }
 
 int Baralho::getSize()

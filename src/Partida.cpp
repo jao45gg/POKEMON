@@ -29,21 +29,76 @@ Partida::Partida(Usuario *jogador, Usuario *bot, string nomeBaralhoJogador, stri
 
     for (int i = 0, ie = 7; i < ie; i++)
     {
-        mao_jogador.push_back(_baralhoJogador.getCarta(rand() % (_baralhoJogador.getSize() + 1)));
-        mao_bot.push_back(_baralhoJogador.getCarta(rand() % (_baralhoBot.getSize() + 1)));
+        int n1, n2;
+        n1 = rand() % (_baralhoJogador.getSize() + 1);
+        n2 = rand() % (_baralhoJogador.getSize() + 1);
+
+        Cartas *c1 = &_baralhoJogador.getCarta(n1);
+        Cartas *c2 = &_baralhoBot.getCarta(n2);
+
+        mao_jogador.push_back(*c1);
+        mao_bot.push_back(*c2);
+        _baralhoJogador.removeCarta(c1->getNome());
+        _baralhoBot.removeCarta(c2->getNome());
+
+        n1 = rand() % (_baralhoJogador.getSize() + 1);
+        n2 = rand() % (_baralhoJogador.getSize() + 1);
+
+        c1 = &_baralhoJogador.getCarta(n1);
+        c2 = &_baralhoBot.getCarta(n2);
+
+        premiosJogador.push_back(*c1);
+        premiosBot.push_back(*c2);
+        _baralhoJogador.removeCarta(c1->getNome());
+        _baralhoBot.removeCarta(c2->getNome());
     }
 }
 
 Partida::~Partida()
 {
-    delete _jogador;
-    delete _bot;
     mao_jogador.clear();
     mao_bot.clear();
     _nomeBaralhoJogador = "";
     _nomeBaralhoBot = "";
+    premiosJogador.clear();
+    premiosBot.clear();
+    _baralhoJogador.~Baralho();
+    _baralhoBot.~Baralho();
 }
-// teste
+
+void Partida::pokemonMorto(Baralho *baralho, Cartas *morto)
+{
+    baralho->removeCarta(morto->getNome());
+    if (premiosBot.size() == 0 && premiosJogador.size() > 0)
+    {
+        cout << _bot->getNome() << " é o vencedor ihuuuuu!\n";
+        _bot->setVitorias();
+        _jogador->setDerrotas();
+        this->~Partida();
+    }
+    else if (premiosJogador.size() == 0 && premiosBot.size() > 0)
+    {
+        cout << _jogador->getNome() << " é o vencedor ihuuuuu!\n";
+        _jogador->setVitorias();
+        _bot->setDerrotas();
+        this->~Partida();
+    }
+    else if (_baralhoBot.getSize() == 0 && mao_bot.size() == 0 && _baralhoJogador.getSize() > 0 && _baralhoJogador.getSize() > 0)
+    {
+        cout << _jogador->getNome() << " é o vencedor ihuuuuu!\n";
+        _jogador->setVitorias();
+        _bot->setDerrotas();
+        this->~Partida();
+    }
+    else if (_baralhoJogador.getSize() == 0 && mao_jogador.size() == 0 && _baralhoBot.getSize() > 0 && _baralhoBot.getSize() > 0)
+    {
+        cout << _bot->getNome() << " é o vencedor ihuuuuu!\n";
+        _bot->setVitorias();
+        _jogador->setDerrotas();
+        this->~Partida();
+    }
+}
+
 void Partida::comprarCarta(Usuario *atacante)
 {
     if (atacante->getNome() == _jogador->getNome())
@@ -56,40 +111,57 @@ void Partida::comprarCarta(Usuario *atacante)
     }
 }
 
-void Partida::ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplicador_dano)
+bool Partida::ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplicador_dano, pair<string, int> infos)
 {
-    if (multiplicador_dano * _atacando->getAtaque() > _defendendo->getDefesa() && _atacando->getEnergia())
+    if (multiplicador_dano * infos.second > _defendendo->getDefesa() && _atacando->getEnergia())
     {
-        _defendendo->sofrerDano(multiplicador_dano * _atacando->getAtaque() - _defendendo->getDefesa());
+        _defendendo->sofrerDano(multiplicador_dano * infos.second - _defendendo->getDefesa());
 
         cout << _atacando->getNome() << " regaçou " << _defendendo->getNome() << " e tirou "
-             << multiplicador_dano * _atacando->getAtaque() - _defendendo->getDefesa()
+             << multiplicador_dano * infos.second - _defendendo->getDefesa()
              << " de vida !" << endl;
+
         if (_defendendo->getHp() <= 0)
+        {
             cout << _defendendo->getNome() << " foi de beise!" << endl;
-        // fazer aqui a parte do pokemon morto
+            return true;
+        }
+        else
+            return false;
     }
-    else if (multiplicador_dano * _atacando->getAtaque() < _defendendo->getDefesa())
+    else if (multiplicador_dano * infos.second < _defendendo->getDefesa())
     {
-        _atacando->sofrerDano(-(multiplicador_dano * _atacando->getAtaque() - _defendendo->getDefesa()));
+        _atacando->sofrerDano(-(multiplicador_dano * infos.second - _defendendo->getDefesa()));
 
         cout << _atacando->getNome() << " cabaçou e " << _defendendo->getNome() << " defendeu causando "
-             << -(multiplicador_dano * _atacando->getAtaque() - _defendendo->getDefesa()) << " de dano!" << endl;
+             << -(multiplicador_dano * infos.second - _defendendo->getDefesa()) << " de dano!" << endl;
+
         if (_atacando->getHp() <= 0)
+        {
             cout << _atacando->getNome() << " foi de beise!" << endl;
-        // fazer aqui a parte do pokemon morto
+            return true;
+        }
+        else
+            return false;
     }
     else if (!_atacando->getEnergia())
+    {
         cout << "Carta sem energia para atacar espertão!" << endl;
+        return false;
+    }
     else
+    {
         cout << _atacando->getNome() << " e " << _defendendo->getNome() << " sairam ilesos da batalha !";
+        return false;
+    }
 }
 
-void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *atacante)
+void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *atacante, string *nome_atk)
 {
     Cartas *atacando;
     Cartas *defendendo;
     bool controle = true;
+    bool control_atk = false;
 
     if (atacante->getNome() == _jogador->getNome())
     {
@@ -108,6 +180,15 @@ void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *ataca
             {
                 controle = false;
                 defendendo = &_baralhoBot.getCarta(i);
+            }
+        }
+        controle = true;
+        for (int i = 0; controle; i++)
+        {
+            if (atacando->getAtaque(*nome_atk).first == *nome_atk)
+            {
+                controle = false;
+                control_atk = true;
             }
         }
     }
@@ -131,28 +212,43 @@ void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *ataca
                 defendendo = &_baralhoJogador.getCarta(i);
             }
         }
+        controle = true;
+        for (int i = 0; controle; i++)
+        {
+            if (atacando->getAtaque(*nome_atk).first == *nome_atk)
+            {
+                controle = false;
+                control_atk = true;
+            }
+        }
     }
 
-    if (atacando->getTipo() == "água" && defendendo->getTipo() == "fogo")
-        this->ataqueTipo(atacando, defendendo, 2);
-    else if (atacando->getTipo() == "fogo" && defendendo->getTipo() == "planta")
-        this->ataqueTipo(atacando, defendendo, 2);
-    else if (atacando->getTipo() == "planta" && defendendo->getTipo() == "terra")
-        this->ataqueTipo(atacando, defendendo, 2);
-    else if (atacando->getTipo() == "terra" && defendendo->getTipo() == "elétrico")
-        this->ataqueTipo(atacando, defendendo, 2);
-    else if (atacando->getTipo() == "elétrico" && defendendo->getTipo() == "água")
-        this->ataqueTipo(atacando, defendendo, 2);
-    else if (atacando->getTipo() == "fogo" && defendendo->getTipo() == "água")
-        this->ataqueTipo(atacando, defendendo, 0.5);
-    else if (atacando->getTipo() == "planta" && defendendo->getTipo() == "fogo")
-        this->ataqueTipo(atacando, defendendo, 0.5);
-    else if (atacando->getTipo() == "terra" && defendendo->getTipo() == "planta")
-        this->ataqueTipo(atacando, defendendo, 0.5);
-    else if (atacando->getTipo() == "elétrico" && defendendo->getTipo() == "terra")
-        this->ataqueTipo(atacando, defendendo, 0.5);
-    else if (atacando->getTipo() == "água" && defendendo->getTipo() == "elétrico")
-        this->ataqueTipo(atacando, defendendo, 0.5);
+    bool controle_mortos = false;
+    if (control_atk)
+    {
+        if (atacando->getTipo() == "água" && defendendo->getTipo() == "fogo")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 2, atacando->getAtaque(*nome_atk));
+        else if (atacando->getTipo() == "fogo" && defendendo->getTipo() == "planta")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 2, atacando->getAtaque(*nome_atk));
+        else if (atacando->getTipo() == "planta" && defendendo->getTipo() == "terra")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 2, atacando->getAtaque(*nome_atk));
+        else if (atacando->getTipo() == "terra" && defendendo->getTipo() == "elétrico")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 2, atacando->getAtaque(*nome_atk));
+        else if (atacando->getTipo() == "elétrico" && defendendo->getTipo() == "água")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 2, atacando->getAtaque(*nome_atk));
+        else if (atacando->getTipo() == "fogo" && defendendo->getTipo() == "água")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 0.5, atacando->getAtaque(*nome_atk));
+        else if (atacando->getTipo() == "planta" && defendendo->getTipo() == "fogo")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 0.5, atacando->getAtaque(*nome_atk));
+        else if (atacando->getTipo() == "terra" && defendendo->getTipo() == "planta")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 0.5, atacando->getAtaque(*nome_atk));
+        else if (atacando->getTipo() == "elétrico" && defendendo->getTipo() == "terra")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 0.5, atacando->getAtaque(*nome_atk));
+        else if (atacando->getTipo() == "água" && defendendo->getTipo() == "elétrico")
+            controle_mortos = this->ataqueTipo(atacando, defendendo, 0.5, atacando->getAtaque(*nome_atk));
+    }
+    else
+        cout << "Nome de ataque inválidoc!\n";
 }
 
 void Partida::_ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *atacante)
@@ -179,6 +275,24 @@ void Partida::_ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *at
                 controle = false;
                 _pokemon->ligarEnergia(_cartaEnergia, _pokemon);
             }
+        }
+    }
+}
+
+void Partida::exibirMao(Usuario *mao) {
+    if (mao->getNome() == _jogador->getNome())
+    {
+        for (int i = 0, ie = _baralhoJogador.getSize(); i < ie; i++)
+        {
+            cout << _baralhoJogador.getCarta(i).getNome() << endl;
+        }
+        
+    }
+    else if (mao->getNome() == _bot->getNome())
+    {
+        for (int i = 0, ie = _baralhoBot.getSize(); i < ie; i++)
+        {
+            cout << _baralhoBot.getCarta(i).getNome() << endl;
         }
     }
 }

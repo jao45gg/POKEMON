@@ -81,12 +81,17 @@ vector<pair<string, int>> Cartas::getAtaques()
 {
   return _ataque;
 }
-pair<string, int> Cartas::getAtaque(int seleciona_atks)
+pair<string, int> Cartas::getAtaque(string nome_atk)
 {
-  if (seleciona_atks >= 0 && seleciona_atks < *_qtnd_atks)
+  for (int i = 0, ie = _ataque.size(); i < ie; i++)
   {
-    return _ataque[seleciona_atks];
+    if (nome_atk == this->_ataque.at(i).first)
+    {
+      return this->_ataque.at(i);
+    }
   }
+  pair<string,int> p = make_pair("Ataque não existe!\n", 0);
+  return  p;
 }
 int Cartas::getDefesa()
 {

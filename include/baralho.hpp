@@ -10,16 +10,18 @@ using namespace std;
 class Baralho
 {
 private:
+
     vector<Cartas> _cartas;
     string _nome;
 
 public:
+
     Baralho();
     Baralho(string nomeP, vector<Cartas> &cartasExistentes);
     ~Baralho();
     string getNome();
     vector<Cartas> getCartasBaralho();
-    void operator = (Baralho &operando);
+    void operator=(Baralho &operando);
     void setNome(string nomeP);
     Cartas getCarta(int num);
     void removeCarta(string nome);

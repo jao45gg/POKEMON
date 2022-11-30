@@ -65,9 +65,9 @@ void Partida::ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplic
         cout << _atacando->getNome() << " regaçou " << _defendendo->getNome() << " e tirou "
              << multiplicador_dano * _atacando->getAtaque() - _defendendo->getDefesa()
              << " de vida !" << endl;
-        if(_defendendo->getHp() <= 0)
+        if (_defendendo->getHp() <= 0)
             cout << _defendendo->getNome() << " foi de beise!" << endl;
-            // fazer aqui a parte do pokemon morto
+        // fazer aqui a parte do pokemon morto
     }
     else if (multiplicador_dano * _atacando->getAtaque() < _defendendo->getDefesa())
     {
@@ -75,9 +75,9 @@ void Partida::ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplic
 
         cout << _atacando->getNome() << " cabaçou e " << _defendendo->getNome() << " defendeu causando "
              << -(multiplicador_dano * _atacando->getAtaque() - _defendendo->getDefesa()) << " de dano!" << endl;
-        if(_atacando->getHp() <= 0)
+        if (_atacando->getHp() <= 0)
             cout << _atacando->getNome() << " foi de beise!" << endl;
-            // fazer aqui a parte do pokemon morto
+        // fazer aqui a parte do pokemon morto
     }
     else if (!_atacando->getEnergia())
         cout << "Carta sem energia para atacar espertão!" << endl;

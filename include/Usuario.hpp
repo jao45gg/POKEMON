@@ -7,6 +7,7 @@
 class Usuario
 {
 public:
+
     Usuario();
     Usuario(std::string nome);
     ~Usuario();
@@ -21,6 +22,7 @@ public:
     std::string toString();
 
 private:
+
     std::string nome;
     int vitorias;
     int derrotas;

@@ -52,7 +52,7 @@ Cartas::Cartas(string tipo)
   //
   _qtnd_atks = nullptr;
   //
-  _ataque = nullptr;
+  _ataque = {};
   //
   _defesa = nullptr;
   //

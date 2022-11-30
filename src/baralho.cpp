@@ -31,7 +31,7 @@ Baralho::Baralho(string nomeP, vector<Cartas> &cartasExistentes)
         //VERIFICA SE EXISTE UMA CARTA DE MESMO NOME NO BARALHO DE CARTAS ADICIONAVEIS
         for (int j = 0, je = (cartasExistentes.size()); j < je; j++)
         {
-            string *procuraNome = ((cartasExistentes.at(j)).getNome());
+            string *procuraNome = &((cartasExistentes.at(j)).getNome());
             if (nomeCarta == *procuraNome)
             {
                 //CASO EXISTA UMA CARTA DE MESMO NOME NO BARALHO DE CARTAS ADICIONAVEIS
@@ -39,7 +39,7 @@ Baralho::Baralho(string nomeP, vector<Cartas> &cartasExistentes)
                 for (int k = 0, ke = ((this->_cartas).size()); k < ke; k++)
                 {
                     //PERCORRE O BARALHO QUE ESTA SENDO CRIADO COMPARANDO O NOME DAS CARTAS COM O ESCRITO
-                    string *nomeDessaCarta = ((_cartas.at(k)).getNome());
+                    string *nomeDessaCarta = &((_cartas.at(k)).getNome());
                     if (nomeCarta == *nomeDessaCarta)
                     {
                         numCartasRep++;

@@ -685,7 +685,7 @@ Trovoada de choques: 20
 10
 Elétrico 
 50
-Electrode 
+Electrode
 2
 Colecionador de esferas: 60
 Golpe rolador: 70

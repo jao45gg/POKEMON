@@ -33,24 +33,18 @@ Partida::Partida(Usuario *jogador, Usuario *bot, string nomeBaralhoJogador, stri
         n1 = rand() % (_baralhoJogador.getSize() + 1);
         n2 = rand() % (_baralhoJogador.getSize() + 1);
 
-        Cartas *c1 = &_baralhoJogador.getCarta(n1);
-        Cartas *c2 = &_baralhoBot.getCarta(n2);
-
-        mao_jogador.push_back(*c1);
-        mao_bot.push_back(*c2);
-        _baralhoJogador.removeCarta(c1->getNome());
-        _baralhoBot.removeCarta(c2->getNome());
+        mao_jogador.push_back(_baralhoJogador.getCarta(n1));
+        mao_bot.push_back(_baralhoBot.getCarta(n2));
+        _baralhoJogador.removeCarta(_baralhoJogador.getCarta(n1).getNome());
+        _baralhoBot.removeCarta(_baralhoBot.getCarta(n2).getNome());
 
         n1 = rand() % (_baralhoJogador.getSize() + 1);
         n2 = rand() % (_baralhoJogador.getSize() + 1);
 
-        c1 = &_baralhoJogador.getCarta(n1);
-        c2 = &_baralhoBot.getCarta(n2);
-
-        premiosJogador.push_back(*c1);
-        premiosBot.push_back(*c2);
-        _baralhoJogador.removeCarta(c1->getNome());
-        _baralhoBot.removeCarta(c2->getNome());
+        premiosJogador.push_back(_baralhoJogador.getCarta(n1));
+        premiosBot.push_back(_baralhoBot.getCarta(n2));
+        _baralhoJogador.removeCarta(_baralhoJogador.getCarta(n1).getNome());
+        _baralhoBot.removeCarta(_baralhoBot.getCarta(n1).getNome());
     }
 }
 
@@ -162,6 +156,7 @@ void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *ataca
     Cartas *defendendo;
     bool controle = true;
     bool control_atk = false;
+    int controle_usuario = 0;
 
     if (atacante->getNome() == _jogador->getNome())
     {
@@ -170,7 +165,8 @@ void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *ataca
             if (*cartaAtacando == _baralhoJogador.getCarta(i).getNome())
             {
                 controle = false;
-                atacando = &_baralhoJogador.getCarta(i);
+                *atacando = _baralhoJogador.getCarta(i);
+                controle_usuario = 1;
             }
         }
         controle = true;
@@ -179,7 +175,7 @@ void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *ataca
             if (*cartaAtacada == _baralhoBot.getCarta(i).getNome())
             {
                 controle = false;
-                defendendo = &_baralhoBot.getCarta(i);
+                *defendendo = _baralhoBot.getCarta(i);
             }
         }
         controle = true;
@@ -200,7 +196,8 @@ void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *ataca
             if (*cartaAtacando == _baralhoBot.getCarta(i).getNome())
             {
                 controle = false;
-                atacando = &_baralhoBot.getCarta(i);
+                *atacando = _baralhoBot.getCarta(i);
+                controle_usuario = 2;
             }
         }
         controle = true;
@@ -209,7 +206,7 @@ void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *ataca
             if (*cartaAtacada == _baralhoJogador.getCarta(i).getNome())
             {
                 controle = false;
-                defendendo = &_baralhoJogador.getCarta(i);
+                *defendendo = _baralhoJogador.getCarta(i);
             }
         }
         controle = true;
@@ -249,6 +246,17 @@ void Partida::Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *ataca
     }
     else
         cout << "Nome de ataque inválidoc!\n";
+    if(controle_mortos) {
+        if(controle_usuario == 1 && atacando->getHp() <=0)
+            this->pokemonMorto(&_baralhoJogador, atacando);
+        else if(controle_usuario == 1 && defendendo->getHp() <=0)
+            this->pokemonMorto(&_baralhoBot, defendendo);
+        else if(controle_usuario == 2 && atacando->getHp() <=0)
+            this->pokemonMorto(&_baralhoBot, atacando);
+        else if(controle_usuario == 2 && defendendo->getHp() <=0)
+            this->pokemonMorto(&_baralhoJogador, defendendo);
+
+    }
 }
 
 void Partida::_ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *atacante)

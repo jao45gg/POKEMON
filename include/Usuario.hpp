@@ -90,7 +90,20 @@ public:
      * 
      */
     std::string toString();
+    
+    /**
+    * @brief Funcao que retorna o nome
+    * do baralho a partir de um id
+    * @param num int que representa o id recebido
+    * @return string que representa o nome do baralho
+    */
     std::string getNomeBaralho(int num);
+    
+    /**
+    * @brief Funcao que altera o nome do baralho
+    * @param nomeP string que servira de substituto ao
+    * nome anterior
+    */
     void setNome(string nomeP);
 
 private:

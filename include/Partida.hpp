@@ -22,12 +22,17 @@ private:
 
 public:
 
-    Partida(Usuario *jogador, Usuario *bot, string nomeBaralhoJogador, string nomeBaralhoBot);
+    Partida(Usuario jogador, Usuario bot, string nomeBaralhoJogador, string nomeBaralhoBot);
     ~Partida();
     void comprarCarta(Usuario *atacante);
     void Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *atacante);       // ataque generico
     void ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplicador_dano); // ataque especifico de cada tipo de pokemon
     void _ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *atacante);
+<<<<<<< Updated upstream
+=======
+    void pokemonMorto(Baralho *baralho, Cartas *morto);
+    void exibirMao(Usuario mao);
+>>>>>>> Stashed changes
 };
 
 #endif

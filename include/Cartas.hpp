@@ -11,12 +11,12 @@ class Cartas
 {
 private:
 
-  string *_nome_pokemon;
-  int *_qtnd_atks;
+  string _nome_pokemon;
+  int _qtnd_atks;
   vector<pair<string, int>> _ataque;
-  int *_defesa;
-  string *_tipo;
-  int *_hp;
+  int _defesa;
+  string _tipo;
+  int _hp;
   bool energiaLigada;
   bool cartaEnergiaUsada;
 
@@ -35,6 +35,7 @@ public:
   void ligarEnergia(Cartas *cartaEnergia, Cartas *pokemon);
   void sofrerDano(int dano);
   bool getEnergia();
+  void mostraCarta();
 };
 
 #endif

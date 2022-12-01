@@ -2,12 +2,19 @@
 #define _PARTIDA_CPP
 
 #include "Partida.hpp"
+#include <iostream>
 
-Partida::Partida(Usuario *jogador, Usuario *bot, string nomeBaralhoJogador, string nomeBaralhoBot)
+using namespace std;
+
+Partida::Partida(Usuario jogador, Usuario bot, string nomeBaralhoJogador, string nomeBaralhoBot)
 {
 
-    _jogador = jogador;
-    _bot = bot;
+    _jogador = &jogador;
+    //_jogador->setNome(jogador.getNome());
+    _bot = &bot;
+    //_bot->setNome(bot.getNome());
+
+    //cout << "aqui foi" << endl;
 
     bool test = true;
     for (int i = 0; test; i++)
@@ -26,11 +33,53 @@ Partida::Partida(Usuario *jogador, Usuario *bot, string nomeBaralhoJogador, stri
         if (controle && controle1)
             test = false;
     }
+    
+    //cout << "os respectivos baralhos foram copiados" << endl;
 
     for (int i = 0, ie = 7; i < ie; i++)
     {
+<<<<<<< Updated upstream
         mao_jogador.push_back(_baralhoJogador.getCarta(rand() % (_baralhoJogador.getSize() + 1)));
         mao_bot.push_back(_baralhoJogador.getCarta(rand() % (_baralhoBot.getSize() + 1)));
+=======
+        int n1, n2;
+        int numElementosJogador = (_baralhoJogador.getSize());
+        if(numElementosJogador == 0){
+            numElementosJogador = 1;
+        }
+        int numElementosBot = (_baralhoBot.getSize());
+        if(numElementosBot == 0){
+            numElementosBot = 1;
+        }
+        n1 = (rand() % (numElementosJogador));
+        n2 = (rand() % (numElementosBot));
+        //cout << n1 << " " << n2 << endl;
+
+        mao_jogador.push_back(_baralhoJogador.getCarta(n1));
+        mao_bot.push_back(_baralhoBot.getCarta(n2));
+        _baralhoJogador.removeCarta(_baralhoJogador.getCarta(n1).getNome());
+        _baralhoBot.removeCarta(_baralhoBot.getCarta(n2).getNome());
+
+        //mao_jogador.at(i).mostraCarta();
+
+        numElementosJogador = (_baralhoJogador.getSize());
+        if(numElementosJogador == 0){
+            numElementosJogador = 1;
+        }
+        numElementosBot = (_baralhoBot.getSize());
+        if(numElementosBot == 0){
+            numElementosBot = 1;
+        }
+
+        n1 = rand() % (numElementosJogador);
+        n2 = rand() % (numElementosBot);
+        //cout << n1 << " " << n2 << endl;
+
+        premiosJogador.push_back(_baralhoJogador.getCarta(n1));
+        premiosBot.push_back(_baralhoBot.getCarta(n2));
+        _baralhoJogador.removeCarta(_baralhoJogador.getCarta(n1).getNome());
+        _baralhoBot.removeCarta(_baralhoBot.getCarta(n1).getNome());
+>>>>>>> Stashed changes
     }
 }
 
@@ -183,4 +232,33 @@ void Partida::_ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *at
     }
 }
 
+<<<<<<< Updated upstream
+=======
+void Partida::exibirMao(Usuario mao) {
+    cout << "entrou aqui pai\n"; 
+    if(mao.getNome() == _jogador->getNome()){
+        cout << "ele compara certo" << endl;
+        for(int i = 0, ie = mao_jogador.size(); i < ie; i++){
+            mao_jogador.at(i).mostraCarta();
+        }
+    }
+    if(mao.getNome() == _bot->getNome()){
+        cout << "ele compara certo" << endl;
+        for(int i = 0, ie = mao_bot.size(); i < ie; i++){
+            mao_bot.at(i).mostraCarta();
+        }
+    }
+    cout << "mostrou a mao" << endl;
+        
+    // }
+    // else if (mao->getNome() == _bot->getNome())
+    // {
+    //     for (int i = 0, ie = mao_bot.size(); i < ie; i++)
+    //     {
+    //         (mao_bot.at(i)).mostraCarta();
+    //     }
+    // }
+}
+
+>>>>>>> Stashed changes
 #endif

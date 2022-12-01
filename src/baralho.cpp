@@ -1,7 +1,11 @@
 #ifndef _BARALHO_CPP
 #define _BARALHO_CPP
 
+<<<<<<< Updated upstream
 #include "Baralho.hpp"
+=======
+#include "../include/baralho.hpp"
+>>>>>>> Stashed changes
 #include "Cartas.hpp"
 #include <vector>
 #include <iostream>
@@ -103,11 +107,7 @@ void Baralho::setNome(string nomeP)
 
 Cartas Baralho::getCarta(int num)
 {
-    for (int i = 0, ie = _cartas.size(); i < ie; i++)
-    {
-        if (i == num)
-            return _cartas[i];
-    }
+    return (_cartas.at(num));
 };
 
 void Baralho::removeCarta(string nome)
@@ -128,6 +128,16 @@ void Baralho::removeCarta(string nome)
 int Baralho::getSize()
 {
     return _cartas.size();
-}
+};
+
+void Baralho::setCartas(vector<Cartas> cartasP){
+    this->_cartas = cartasP;
+};
+
+void Baralho::mostraBaralho(){
+    for(int i = 0, ie = (this->getSize()); i < ie; i++){
+        (this->_cartas).at(i).mostraCarta();
+    }
+};
 
 #endif

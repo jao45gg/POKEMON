@@ -2,7 +2,11 @@
 #define _USUARIO_HPP
 #include <string>
 #include <vector>
+<<<<<<< Updated upstream
 #include <Baralho.hpp>
+=======
+#include "baralho.hpp"
+>>>>>>> Stashed changes
 
 class Usuario
 {
@@ -20,6 +24,8 @@ public:
     void setDerrotas(int derrotas);
     void setBaralhos(Baralho baralhos);
     std::string toString();
+    std::string getNomeBaralho(int num);
+    void setNome(string nomeP);
 
 private:
 

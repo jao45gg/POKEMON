@@ -26,5 +26,7 @@ public:
     Cartas getCarta(int num);
     void removeCarta(string nome);
     int getSize();
+    void setCartas(vector<Cartas> cartasP);
+    void mostraBaralho();
 };
 #endif

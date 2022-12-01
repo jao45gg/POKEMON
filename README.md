@@ -10,7 +10,7 @@ O jogo de cartas Pokémon, funciona de maneira que, dois jogadores (cada um com 
 
   Para que esse projeto seja funcional, realizamos a confecção de um diagrama de classes que representa cada uma das classes utilizadas no programa.
 
-![Diagrama de classes](infos/DIAGRAMACLASSV1.drawio.png)
+![Diagrama de classes](infos/DIAGRAMACLASSV2.drawio.jpeg)
 
 *Essas classes são divididas em Cartas, Baralho, Usuario e Partida, e elas serão explicadas a seguir*
 

@@ -76,8 +76,9 @@ public:
     void setNome(string nomeP);
     
     /**
-     * @brief Funcao que retorna um numero equivalente a uma carta
-     * @return "Id" ou numero de representacao de uma carta
+     * @brief Funcao que retorna uma carta contida no baralho
+     * @return Carta representada por num
+     * @param num int que representa carta usada
      * 
      */
     Cartas getCarta(int num);
@@ -88,17 +89,27 @@ public:
      * 
      */
     void removeCarta(string nome);
-    
-    
-    int getSize();
-    
+
     /**
      * @brief Funcao que retorna o valor inteiro da quantidade
      * de cartas
      * @return Int de quantidade de cartas no baralho
      * 
      */
+    int getSize();
+    
+    /**
+     * @brief Funcao que retorna o valor inteiro da quantidade
+     * de cartas
+     * @param cartasP vector que contem cartas a ser inseridas no baralho
+     * 
+     */
     void setCartas(vector<Cartas> cartasP);
+    
+    /**
+     * @brief Funcao que imprime na tela as cartas 
+     * contidas no baralho
+     */
     void mostraBaralho();
 };
 #endif

@@ -2,11 +2,8 @@
 #define _USUARIO_HPP
 #include <string>
 #include <vector>
-<<<<<<< Updated upstream
-#include <Baralho.hpp>
-=======
 #include "baralho.hpp"
->>>>>>> Stashed changes
+#include "Cartas.hpp"
 
 class Usuario
 {

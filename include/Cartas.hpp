@@ -31,7 +31,7 @@ public:
   int getDefesa();
   string getTipo();
   int getHp();
-  vector<pair<string, int>> Cartas::getAtaques();
+  vector<pair<string, int>> getAtaques();
   void ligarEnergia(Cartas *cartaEnergia, Cartas *pokemon);
   void sofrerDano(int dano);
   bool getEnergia();

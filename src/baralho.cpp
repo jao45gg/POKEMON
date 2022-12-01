@@ -1,11 +1,7 @@
 #ifndef _BARALHO_CPP
 #define _BARALHO_CPP
 
-<<<<<<< Updated upstream
-#include "Baralho.hpp"
-=======
 #include "../include/baralho.hpp"
->>>>>>> Stashed changes
 #include "Cartas.hpp"
 #include <vector>
 #include <iostream>
@@ -94,11 +90,11 @@ vector<Cartas> Baralho::getCartasBaralho()
     return (this->_cartas);
 }
 
-void Baralho::operator=(Baralho &operando)
-{
-    this->_nome = (operando.getNome());
-    this->_cartas = (operando.getCartasBaralho());
-}
+// void Baralho::operator=(Baralho &operando)
+// {
+//     this->_nome = (operando.getNome());
+//     this->_cartas = (operando.getCartasBaralho());
+// }
 
 void Baralho::setNome(string nomeP)
 {

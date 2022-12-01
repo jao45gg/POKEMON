@@ -1,7 +1,10 @@
 #ifndef _PARTIDA_HPP
 #define _PARTIDA_HPP
 
+#include "../include/Usuario.hpp"
 #include "Usuario.hpp"
+#include "Cartas.hpp"
+#include "baralho.hpp"
 #include <cstdlib> // bib que tem o rand() para gerar números aleatórios
 
 using namespace std;
@@ -19,6 +22,9 @@ private:
     vector<Cartas> mao_jogador;
     vector<Cartas> mao_bot;
     string _nomeBaralhoJogador, _nomeBaralhoBot;
+    vector<Cartas> premiosJogador;
+    vector<Cartas> premiosBot;
+    
 
 public:
 
@@ -26,13 +32,10 @@ public:
     ~Partida();
     void comprarCarta(Usuario *atacante);
     void Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *atacante);       // ataque generico
-    void ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplicador_dano); // ataque especifico de cada tipo de pokemon
+    //void ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplicador_dano); //, pair<string,int> infos); // ataque especifico de cada tipo de pokemon
     void _ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *atacante);
-<<<<<<< Updated upstream
-=======
     void pokemonMorto(Baralho *baralho, Cartas *morto);
     void exibirMao(Usuario mao);
->>>>>>> Stashed changes
 };
 
 #endif

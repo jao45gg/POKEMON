@@ -21,7 +21,7 @@ public:
     ~Baralho();
     string getNome();
     vector<Cartas> getCartasBaralho();
-    void operator=(Baralho &operando);
+    //void operator=(Baralho &operando);
     void setNome(string nomeP);
     Cartas getCarta(int num);
     void removeCarta(string nome);

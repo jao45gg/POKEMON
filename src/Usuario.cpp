@@ -1,8 +1,9 @@
 #ifndef _USUARIO_CPP
 #define _USUARIO_CPP
 
-#include "../include/Usuario.hpp"
-#include "../include/baralho.hpp"
+#include "Usuario.hpp"
+#include "Cartas.hpp"
+#include "baralho.hpp"
 #include <fstream>
 #include <stdio.h>
 #include <iostream>
@@ -30,71 +31,18 @@ Usuario::Usuario(string nome)
     this->nome = nome;
     this->vitorias = 0;
     this->derrotas = 0;
-
-    ifstream myfile;
-    myfile.open("pokemons.txt");
     
     vector<Cartas> cartasExistentes;
-    string nome_pokemon;
-    int qtnd_atks;
+    //string nome_pokemon;
     vector<pair<string, int> > ataque;
-    int defesa;
-    string tipo;
-    int hp;
+    //int defesa;
+    //string tipo;
+    //int hp;
 
-<<<<<<< Updated upstream
-    if (myfile.is_open())
-    {
-        int i = 0;
-        while (myfile)
-        {
-            getline(myfile, nome_pokemon), '\n';
-
-            string tmp,nome_atk;
-            int dano;
-
-            getline(myfile, tmp);
-            sscanf(tmp.c_str(), "%d", &qtnd_atks);
-            
-            for (int i = 0, ie = qtnd_atks; i < ie; i++)
-            {
-                string line, tmp;
-                getline(myfile, line);
-                istringstream iss(line);
-                getline(iss, nome_atk, ':');
-
-                getline(iss, tmp, '\n');
-                istringstream(tmp) >> dano;
-
-                pair<string, int> foo;
-                foo = make_pair(nome_atk, dano);
-                ataque.push_back(foo);
-            }
-            
-            getline(myfile, tmp);
-            sscanf(tmp.c_str(), "%d", &defesa);
-
-            getline(myfile, tipo);
-
-            getline(myfile, tmp);
-            sscanf(tmp.c_str(), "%d", &hp);
-
-            cartasExistentes.push_back(Cartas (nome_pokemon, qtnd_atks, ataque, defesa, tipo, hp));
-         
-        }
-    }
-    else
-        std::cout << "Falha ao abrir o arquivo \n";
-
-    string nomeBaralho;
-    cout << "Qual será o nome do baralho?\n";
-    cin >> nomeBaralho;
-    baralhos.push_back(Baralho (nomeBaralho, cartasExistentes));
-=======
-    bool condicao = true;
-    int i = 0;
-    int teste = 10;
-    int cartasAddJog = 0;
+    //bool condicao = true;
+    //int i = 0;
+    //int teste = 10;
+    //int cartasAddJog = 0;
 
     if(nome == "bot"){
         //cout << "aqui foi" << endl;
@@ -150,8 +98,8 @@ Usuario::Usuario(string nome)
         novo.setNome(nomeBaralho);
         while(adicionadas < 15){
             ataque.clear();
-            int i = (cartasExistentes.size());
 
+            //int i = (cartasExistentes.size());
             // cout << "Digite o nome do pokemon [" << i << "] :\n";
             // cin >> nome_pokemon;
             // cout << "Digite o nome do ataque do pokemon [" << i << "] :\n";
@@ -182,7 +130,6 @@ Usuario::Usuario(string nome)
         this->baralhos.push_back(novo);
         //this->baralhos.at(0).mostraBaralho();
     }
->>>>>>> Stashed changes
 }
 
 //     while (condicao)
@@ -286,9 +233,9 @@ std::string Usuario::toString()
     retorno += "Vitorias: " + std::to_string(this->vitorias) + "\n";
     retorno += "Derrotas: " + std::to_string(this->derrotas) + "\n";
     retorno += "Baralhos:";
-    for (int i = 0; i < this->baralhos.size(); i++)
+    for (int i = 0; i < ((this->baralhos).size()); i++)
     {
-        retorno += this->baralhos[i].getNome() + "\n";
+        retorno += (((this->baralhos[i]).getNome()) + "\n");
     }
     return retorno;
 }

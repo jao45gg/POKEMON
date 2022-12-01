@@ -1,19 +1,15 @@
-<<<<<<< Updated upstream
-=======
-#include "Partida.hpp"
-#include "Usuario.hpp"
+#include "../include/Partida.hpp"
+#include "../include/Usuario.hpp"
+#include "../include/Cartas.hpp"
+#include "../include/baralho.hpp"
 #include <fstream>
 #include <stdio.h>
->>>>>>> Stashed changes
 #include <iostream>
-
-#include "Partida.hpp"
+#include <sstream>
 
 int main()
 {
 
-<<<<<<< Updated upstream
-=======
   string nome_jogador;
 
   cout << "Digite o nome do jogador :)\n";
@@ -24,11 +20,6 @@ int main()
   string nomeBaralhoJogador;
   nomeBaralhoJogador = jogador.getNomeBaralho(0);
   //cout << "pegou o nome do baralho " << nomeBaralhoJogador << endl;
-
-  Usuario *jogadorpont;
-  jogadorpont = &jogador;
-  Usuario *botpont;
-  botpont = &bot;
   
   Partida Jogo = Partida(jogador, bot, nomeBaralhoJogador, "Baralho do Bot");
   //cout << "criou partida direito \n";
@@ -37,6 +28,5 @@ int main()
   // p.comprarCarta(&jogador);
   // p.exibirMao(&jogador);
 
->>>>>>> Stashed changes
   return 0;
 }

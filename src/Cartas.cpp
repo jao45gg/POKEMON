@@ -78,11 +78,11 @@ vector<pair<string, int>> Cartas::getAtaques()
 }
 pair<string, int> Cartas::getAtaque(int seleciona_atks)
 {
-  if (seleciona_atks >= 0 && seleciona_atks < *_qtnd_atks)
+  if (seleciona_atks >= 0 && seleciona_atks < _qtnd_atks)
   {
     return _ataque[seleciona_atks];
   }
-}
+};
 int Cartas::getDefesa()
 {
   return _defesa;

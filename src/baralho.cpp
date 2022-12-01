@@ -1,8 +1,6 @@
 #ifndef _BARALHO_CPP
 #define _BARALHO_CPP
 
-#define NC 2
-
 #include "baralho.hpp"
 #include "Cartas.hpp"
 #include <vector>
@@ -20,7 +18,7 @@ Baralho::Baralho(string nomeP, vector<Cartas> &cartasExistentes)
 {
     this->_nome = nomeP;
     // REPETIR O CICLO ENQUANTO O BARALHO NÃO ATINGIR SEU TAMANHO CORRETO
-    while (((this->_cartas).size()) <= NC) // coloquei 2 so para agilizar nos testes
+    while (((this->_cartas).size()) <= cartasExistentes.size()) 
     {
         // PEDE O NOME DA CARTA QUE SE QUER ADICIONAR AO BARALHO
         string nomeCarta;

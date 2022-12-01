@@ -72,6 +72,7 @@ Veneno reativo: 60
 Ácido corrosivo: 80
 20
 Planta
+0
 Chikorita 
 2
 Síntese: 10

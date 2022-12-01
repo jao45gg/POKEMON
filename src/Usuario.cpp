@@ -7,6 +7,8 @@
 #include <iostream>
 #include <sstream>
 
+using namespace std;
+
 Usuario::Usuario()
 {
     this->nome = "Jogador";
@@ -29,63 +31,78 @@ Usuario::Usuario(std::string nome)
     this->vitorias = 0;
     this->derrotas = 0;
 
-    // ifstream myfile;
-    // myfile.open("pokemons.txt");
-    
-    // vector<Cartas> cartasExistentes;
-    // string nome_pokemon;
-    // int qtnd_atks;
-    // vector<pair<string, int> > ataque;
-    // int defesa;
-    // string tipo;
-    // int hp;
+    vector<Cartas> cartasExistentes;
+    string nome_pokemon;
+    int qtnd_atks;
+    vector<pair<string, int>> ataque;
+    int defesa;
+    string tipo;
+    int hp;
 
-    // if (myfile.is_open())
-    // {
-    //     while (myfile)
-    //     {
-    //         getline(myfile, nome_pokemon);
+    bool condicao = true;
+    int i = 0;
+    int teste = 10;
+    while (condicao)
+    {
+        if (this->nome == "bot")
+            cout << "Insira ao menos 10 cartas para o bot!\n\n";
+        else
+            cout << "Insira ao menos 10 cartas para o jogador!\n\n";
 
-    //         string tmp,nome_atk;
-    //         int dano;
+        cout << "Insira o nome do pokemon\n";
+        cin >> nome_pokemon;
 
-    //         getline(myfile, tmp);
-    //         sscanf(tmp.c_str(), "%d", &qtnd_atks);
-            
-    //         for (int i = 0, ie = qtnd_atks; i < ie; i++)
-    //         {
-    //             string line, tmp;
-    //             getline(myfile, line);
-    //             istringstream iss(line);
-    //             getline(iss, nome_atk, ':');
+        string tmp, nome_atk;
+        int dano;
 
-    //             getline(iss, tmp, '\n');
-    //             istringstream(tmp) >> dano;
+        cout << "Insira a quantidade de ataques do pokemon\n\n";
+        cin >> qtnd_atks;
 
-    //             pair<string, int> foo;
-    //             foo = make_pair(nome_atk, dano);
-    //             ataque.push_back(foo);
-    //         }
-            
-    //         getline(myfile, tmp);
-    //         sscanf(tmp.c_str(), "%d", &defesa);
+        for (int i = 0, ie = qtnd_atks; i < ie; i++)
+        {
+            cout << "Insira o nome do ataque\n\n";
+            cin >> nome_atk;
 
-    //         getline(myfile, tipo);
+            cout << "Insira o dano do ataque\n\n";
+            cin >> dano;
 
-    //         getline(myfile, tmp);
-    //         sscanf(tmp.c_str(), "%d", &hp);
+            pair<string, int> foo;
+            foo = make_pair(nome_atk, dano);
+            ataque.push_back(foo);
+        }
 
-    //         cartasExistentes.push_back(Cartas (nome_pokemon, qtnd_atks, ataque, defesa, tipo, hp));
-         
-    //     }
-    // }
-    // else
-    //     std::cout << "Falha ao abrir o arquivo \n";
+        cout << "Insira a defesa\n\n";
+        cin >> defesa;
+
+        cout << "Insira o tipo\n\n";
+        cin >> tipo;
+
+        cout << "Insira o hp\n\n";
+        cin >> hp;
+
+        cartasExistentes.push_back(Cartas(nome_pokemon, qtnd_atks, ataque, defesa, tipo, hp));
+        if (i == teste - 1)
+        {
+            char c;
+            cout << "Deseja inserir mais cartas ? (s/n) \n";
+            cin >> c;
+            if (c == 'n')
+                condicao = false;
+            else if (c == 's')
+            {
+                int n;
+                cout << "quantas ?\n";
+                cin >> n;
+                teste += n;
+            }
+        }
+        i++;
+    }
 
     string nomeBaralho;
     cout << "Qual será o nome do baralho?\n";
     cin >> nomeBaralho;
-    //baralhos.push_back(Baralho (nomeBaralho, cartasExistentes));
+    baralhos.push_back(Baralho(nomeBaralho, cartasExistentes));
 }
 
 int Usuario::getVitorias()

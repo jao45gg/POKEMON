@@ -35,7 +35,7 @@ public:
     //void ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplicador_dano); //, pair<string,int> infos); // ataque especifico de cada tipo de pokemon
     void _ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *atacante);
     void pokemonMorto(Baralho *baralho, Cartas *morto);
-    void exibirMao(Usuario mao);
+    void exibirMao(Usuario *mao);
 };
 
 #endif

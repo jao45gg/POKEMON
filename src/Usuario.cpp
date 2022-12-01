@@ -122,6 +122,7 @@ Usuario::Usuario(string nome)
             pair<string, int> foo;
             foo = make_pair("Mordida", 10);
             ataque.push_back(foo);
+            
             Cartas aux = Cartas("Pikachu", 1, ataque, 50, "Eletrico", 100);
             adicionadas++;
             cartasExistentes.push_back(aux);
@@ -131,72 +132,6 @@ Usuario::Usuario(string nome)
         //this->baralhos.at(0).mostraBaralho();
     }
 }
-
-//     while (condicao)
-//     {
-//         if (this->nome == "bot"){
-//             cout << "Insira ao menos 10 cartas para o bot!\n\n";
-//         } 
-//         else
-//         {
-//             cout << "Insira ao menos 10 cartas para o jogador!\n\n";
-//         }
-
-//         cout << "Insira o nome do pokemon\n";
-//         cin >> nome_pokemon;
-
-//         string tmp, nome_atk;
-//         int dano;
-
-//         cout << "Insira a quantidade de ataques do pokemon\n\n";
-//         cin >> qtnd_atks;
-
-//         for (int i = 0, ie = qtnd_atks; i < ie; i++)
-//         {
-//             cout << "Insira o nome do ataque\n\n";
-//             cin >> nome_atk;
-
-//             cout << "Insira o dano do ataque\n\n";
-//             cin >> dano;
-
-//             pair<string, int> foo;
-//             foo = make_pair(nome_atk, dano);
-//             ataque.push_back(foo);
-//         }
-
-//         cout << "Insira a defesa\n\n";
-//         cin >> defesa;
-
-//         cout << "Insira o tipo\n\n";
-//         cin >> tipo;
-
-//         cout << "Insira o hp\n\n";
-//         cin >> hp;
-
-//         cartasExistentes.push_back(Cartas(nome_pokemon, qtnd_atks, ataque, defesa, tipo, hp));
-//         if (i == teste - 1)
-//         {
-//             char c;
-//             cout << "Deseja inserir mais cartas ? (s/n) \n";
-//             cin >> c;
-//             if (c == 'n')
-//                 condicao = false;
-//             else if (c == 's')
-//             {
-//                 int n;
-//                 cout << "quantas ?\n";
-//                 cin >> n;
-//                 teste += n;
-//             }
-//         }
-//         i++;
-//     }
-
-//     string nomeBaralho;
-//     cout << "Qual será o nome do baralho?\n";
-//     cin >> nomeBaralho;
-//     baralhos.push_back(Baralho(nomeBaralho, cartasExistentes));
-// }
 
 int Usuario::getVitorias()
 {

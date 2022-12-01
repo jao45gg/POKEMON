@@ -24,9 +24,17 @@ int main()
   Partida Jogo = Partida(jogador, bot, nomeBaralhoJogador, "Baralho do Bot");
   //cout << "criou partida direito \n";
 
-  Jogo.exibirMao(jogador);
-  // p.comprarCarta(&jogador);
+  //cout << "mao do jogador no inicio do jogo\n";
+  //cout << "Mostrando a mao do jogador no inicio da partida: \n";
+  Jogo.exibirMao(&jogador);
+  //cout << "\n\n Jogador comendo uma carta \n\n";
+  Jogo.comprarCarta(&jogador);
+  //cout << "\n\nMao do jogador depois de comer a carta\n";
+  Jogo.exibirMao(&jogador);
+  //cout << "\n\n Jogador tentando comer uma carta \n\n";
+  Jogo.comprarCarta(&jogador);
   // p.exibirMao(&jogador);
+  //cout << "Finalizando... \n\n";
 
   return 0;
 }

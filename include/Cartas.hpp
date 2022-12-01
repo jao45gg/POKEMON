@@ -87,9 +87,8 @@ public:
   int getHp();
   
   /**
-   * @brief Funcao que associa uma carta de energia
-   * a uma carta de pokemon
-   * @return vector que contem todos os movimentos da carta
+   * @brief Funcao que retorna um vector de pair com todos os ataques
+   * @return vector que contem todos os ataques da carta
    * 
    */
   vector<pair<string, int>> getAtaques();

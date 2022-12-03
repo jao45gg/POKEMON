@@ -28,5 +28,6 @@ public:
     int getSize();
     void setCartas(vector<Cartas> cartasP);
     void mostraBaralho();
+    void mostraNomesCartas();
 };
 #endif

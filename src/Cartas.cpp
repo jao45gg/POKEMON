@@ -6,10 +6,21 @@
 
 using namespace std;
 
+Cartas::Cartas(){
+  this->_hp = 0;
+  this->_defesa = 0;
+  this->_nome_pokemon = "";
+  this->_qtnd_atks = 0;
+  vector<pair<string, int>> vazio;
+  vazio.clear();
+  this->_ataque = vazio;
+};
+
 Cartas::Cartas(string nome, int qtnd_atks, vector<pair<string, int>> ataque, int defesa, string tipo, int hp)
 {
   _nome_pokemon = nome;
   _qtnd_atks = qtnd_atks;
+  _ataque.clear();
 
   for (int i = 0; i < qtnd_atks; i++)
   {
@@ -39,27 +50,22 @@ Cartas::Cartas(string nome, int qtnd_atks, vector<pair<string, int>> ataque, int
   //
   _hp = hp;
   //
-  energiaLigada = false;
-  cartaEnergiaUsada = false;
-}
-Cartas::Cartas(string tipo)
-{
-  _nome_pokemon = "";
-  //
-  _qtnd_atks = 0;
-  //
-  _ataque.clear();
-  //
-  _defesa = 0;
-  //
-  _tipo = tipo;
-  //
-  _hp = 0;
-  //
-
-  energiaLigada = false;
-  cartaEnergiaUsada = false;
-}
+};
+// Cartas::Cartas(string tipo)
+// {
+//   _nome_pokemon = "";
+//   //
+//   _qtnd_atks = 0;
+//   //
+//   _ataque.clear();
+//   //
+//   _defesa = 0;
+//   //
+//   _tipo = tipo;
+//   //
+//   _hp = 0;
+//   //
+// }
 Cartas::~Cartas()
 {
   _nome_pokemon = "";
@@ -76,13 +82,15 @@ vector<pair<string, int>> Cartas::getAtaques()
 {
   return _ataque;
 }
+
 pair<string, int> Cartas::getAtaque(int seleciona_atks)
 {
   if (seleciona_atks >= 0 && seleciona_atks < _qtnd_atks)
   {
-    return _ataque[seleciona_atks];
+    return (_ataque.at(seleciona_atks));
   }
-};
+}
+
 int Cartas::getDefesa()
 {
   return _defesa;
@@ -96,25 +104,11 @@ int Cartas::getHp()
   return _hp;
 }
 
-void Cartas::ligarEnergia(Cartas *cartaEnergia, Cartas *pokemon)
-{
-  if (cartaEnergia->getTipo() == "energia")
-  {
-    pokemon->energiaLigada = true;
-    cartaEnergia->cartaEnergiaUsada = true;
-  }
-}
 
 void Cartas::sofrerDano(int dano)
 {
-  _hp -= dano;
-}
-
-bool Cartas::getEnergia()
-{
-  if (energiaLigada)
-    return true;
-  return false;
+  (this->_hp) = _hp - dano;
+  cout << "--> " << "  Vida depois do ataque: " << _hp << endl << endl;
 }
 
 void Cartas::mostraCarta(){
@@ -123,6 +117,16 @@ void Cartas::mostraCarta(){
   cout << "Defesa " << (this->_defesa) << endl;;
   cout << "Tipo " << (this->_tipo) << endl;
   cout << "Vida " << (this->_hp) << endl;
+}
+
+void Cartas::destroiCarta(){
+  this->_hp = 0;
+  this->_defesa = 0;
+  this->_nome_pokemon = "";
+  this->_qtnd_atks = 0;
+  vector<pair<string, int>> vazio;
+  vazio.clear();
+  this->_ataque = vazio;
 }
 
 #endif

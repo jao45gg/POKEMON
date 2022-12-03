@@ -136,4 +136,11 @@ void Baralho::mostraBaralho(){
     }
 };
 
+void Baralho::mostraNomesCartas(){
+    for(int i = 0, ie = (this->getSize()); i < ie; i++){
+        cout << "   [" << i <<"] " << (this->_cartas).at(i).getNome();
+        cout << endl;
+    }
+};
+
 #endif

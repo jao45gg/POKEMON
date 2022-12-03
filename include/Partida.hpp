@@ -14,7 +14,6 @@ using namespace std;
 class Partida
 {
 private:
-
     Usuario *_jogador;
     Usuario *_bot;
     Baralho _baralhoJogador; // copia para fazer os pokemons mortos
@@ -24,18 +23,27 @@ private:
     string _nomeBaralhoJogador, _nomeBaralhoBot;
     vector<Cartas> premiosJogador;
     vector<Cartas> premiosBot;
-    
+    Cartas _cartaEmBatalhaJogador;
+    Cartas _cartaEmBatalhaBot;
 
 public:
 
     Partida(Usuario jogador, Usuario bot, string nomeBaralhoJogador, string nomeBaralhoBot);
     ~Partida();
-    void comprarCarta(Usuario *atacante);
-    void Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *atacante);       // ataque generico
+    void comprarCarta(string nomeJogador);
+    void Ataque(string usuarioAtacante, string usuarioDefensor);       // ataque generico
     //void ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplicador_dano); //, pair<string,int> infos); // ataque especifico de cada tipo de pokemon
     void _ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *atacante);
     void pokemonMorto(Baralho *baralho, Cartas *morto);
     void exibirMao(Usuario *mao);
+    void ganharPremio(string nomeJogador);
+    int numPremio(string nomeJogador);
+    bool estaSemCarta(string nomeJogador);
+    void setCartaEmBatalha(int numCarta, string nomePlayer);
+    bool cartaMorta(string nomeJogador);
+    void matarCarta(string nomeJogador);
+    vector<Cartas> getMaoJogador(string nomeJogador);
+    string getNomeCartaBatalha(string nomeJogador);
+    // Cartas *getCartaBatalha(string nomeJogador);
 };
-
 #endif

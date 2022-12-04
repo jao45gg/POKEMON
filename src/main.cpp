@@ -359,8 +359,6 @@ int main()
         cin >> comandoAux;
         cout << endl;
 
-        system("cls");
-
         if (comandoAux == 1)
         {
           cout << "Voltando para o Menu...";
@@ -371,7 +369,9 @@ int main()
         else if (comandoAux == 2)
         {
           cout << "Fechando o jogo...";
+          return 0;
           break;
+          
         }
         else if ((comandoAux != 1) && (comandoAux != 2))
         {

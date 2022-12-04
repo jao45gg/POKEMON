@@ -88,7 +88,7 @@ pair<string, int> Cartas::getAtaque(int seleciona_atks)
   if (seleciona_atks >= 0 && seleciona_atks < _qtnd_atks)
   {
     return (_ataque.at(seleciona_atks));
-  }
+  } else { return pair<string, int> {"vazio", 0};}
 }
 
 int Cartas::getDefesa()

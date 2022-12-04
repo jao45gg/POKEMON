@@ -2,6 +2,7 @@
 #include "../include/Usuario.hpp"
 #include "../include/Cartas.hpp"
 #include "../include/baralho.hpp"
+#include "../third_party/color.hpp"//Usado para colorir algumas saidas
 #include <fstream>
 #include <stdio.h>
 #include <iostream>
@@ -9,12 +10,15 @@
 #include <cstdlib>
 #include <ctime>
 
+
+
 int main()
 {
-  cout << " _____     _                        _____ _____ _____ " << endl;
-  cout << "|  _  |___| |_ ___ _____ ___ ___   |_   _|     |   __|" << endl;
-  cout << "|   __| . | '_| -_|     | . |   |    | | |   --|  |  |" << endl;
-  cout << "|__|  |___|_,_|___|_|_|_|___|_|_|    |_| |_____|_____|" << endl;
+  system("cls");
+  cout << dye::yellow_on_black(" _____     _                        _____ _____ _____ ") << endl;
+  cout << dye::yellow_on_black("|  _  |___| |_ ___ _____ ___ ___   |_   _|     |   __|") << endl;
+  cout << dye::yellow_on_black("|   __| . | '_| -_|     | . |   |    | | |   --|  |  |") << endl;
+  cout << dye::yellow_on_black("|__|  |___|_,_|___|_|_|_|___|_|_|    |_| |_____|_____|") << endl;
   cout << "                        PDS II                        " << endl;
   cout << endl;
 
@@ -23,7 +27,7 @@ int main()
 
   do
   {
-    cout << "Menu" << endl
+    cout << dye::white_on_green("Menu") << endl
          << endl;
     cout << "Digite '1' para Iniciar um Jogo" << endl;
     cout << "Digite '2' para Ver os Creditos" << endl;
@@ -39,6 +43,7 @@ int main()
     if (comando == 1)
     {
       string nomePersonagem;
+      system("cls");
       cout << "Digite o nome do seu personagem:" << endl
            << endl;
       cin >> nomePersonagem;
@@ -99,16 +104,18 @@ int main()
         }
       } while (moeda != 1 && moeda != 2);
 
+      system("cls");
+
       if (jogadorInicia)
       {
         cout << endl;
-        cout << nomePersonagem << " comeca jogando!" << endl
+        cout << nomePersonagem << dye::green_on_black(" comeca jogando!") << endl
              << endl;
       }
       else
       {
         cout << endl;
-        cout << "Bot comeca jogando!" << endl
+        cout << dye::red_on_black("Bot comeca jogando!") << endl
              << endl;
       }
       // return 0;
@@ -122,7 +129,7 @@ int main()
       while (((Jogo.numPremio(nomePersonagem)) > 0) && ((Jogo.numPremio("Bot")) > 0))
       {
         // char buffer;
-        cout << "RODADA " << contagemRodadas << endl;
+        cout << dye::yellow_on_black("RODADA ") << contagemRodadas << endl;
         cout << endl;
         // cin >> buffer;
 
@@ -139,7 +146,7 @@ int main()
               // if(Jogo.cartaMorta(nomePersonagem)){
               // Jogo.matarCarta(nomePersonagem);
               Jogo.comprarCarta(nomePersonagem);
-              cout << "Sua carta em batalha morreu, digite o numero de uma outra carta de substituicao" << endl;
+              cout << dye::red_on_black("Sua carta em batalha morreu, digite o numero de uma outra carta de substituicao") << endl;
               //}
             }
             if (primeiraRodadaJogador == 1)
@@ -166,7 +173,7 @@ int main()
               if (numCarta < 0 || numCarta >= (int)(MaoJogador.size()))
               {
                 cout << endl
-                     << "Numero de carta invalido, tente novamente" << endl
+                     << dye::red_on_black("Numero de carta invalido, tente novamente") << endl
                      << endl;
               }
               else
@@ -298,6 +305,12 @@ int main()
              << endl;
       }
 
+      string buffer; //so segura o fluxo de saidas
+      cout<< endl<< endl << endl << endl << dye::yellow_on_black("Insira qualquer botao para continuar:") << endl;
+      cin >> buffer;
+
+      system("cls");
+
       do
       {
         cout << endl;
@@ -311,7 +324,7 @@ int main()
         if (comandoAux == 1)
         {
           cout << "Voltando ao Menu..." << endl;
-          comando = 99;
+          comando = 0;
           //break;
         }
         else if (comandoAux == 2)
@@ -330,11 +343,11 @@ int main()
 
       cout << "Trabalho feito pelos alunos:" << endl;
       cout << endl;
-      cout << "  [] Luiz Otavio Uchoa Pereira" << endl;
-      cout << "  [] Thais Madeira da Silva" << endl;
-      cout << "  [] Joao Pedro Souza Braga" << endl;
-      cout << "  [] Christian Soares Santos" << endl;
-      cout << "  [] Gabriel Hesse Vitusso" << endl;
+      cout << dye::green_on_black("  [] Luiz Otavio Uchoa Pereira") << endl;
+      cout << dye::aqua_on_black("  [] Thais Madeira da Silva") << endl;
+      cout << dye::purple_on_black("  [] Joao Pedro Souza Braga") << endl;
+      cout << dye::red_on_black("  [] Christian Soares Santos") << endl;
+      cout << dye::yellow_on_black("  [] Gabriel Hesse Vitusso") << endl;
 
       do
       {
@@ -346,10 +359,13 @@ int main()
         cin >> comandoAux;
         cout << endl;
 
+        system("cls");
+
         if (comandoAux == 1)
         {
           cout << "Voltando para o Menu...";
           cout << endl;
+          comando = 0;
           //break;
         }
         else if (comandoAux == 2)

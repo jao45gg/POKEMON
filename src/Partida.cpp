@@ -2,11 +2,12 @@
 #define _PARTIDA_CPP
 
 #include "../include/Partida.hpp"
-#include "Usuario.hpp"
+#include "../include/Usuario.hpp"
 #include "../include/Cartas.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+
 
 using namespace std;
 

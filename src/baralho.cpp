@@ -2,7 +2,7 @@
 #define _BARALHO_CPP
 
 #include "../include/baralho.hpp"
-#include "Cartas.hpp"
+#include "../include/Cartas.hpp"
 #include <vector>
 #include <iostream>
 

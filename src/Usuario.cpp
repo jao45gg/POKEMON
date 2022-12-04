@@ -1,13 +1,14 @@
 #ifndef _USUARIO_CPP
 #define _USUARIO_CPP
 
-#include "Usuario.hpp"
-#include "Cartas.hpp"
-#include "baralho.hpp"
+#include "../include/Usuario.hpp"
+#include "../include/Cartas.hpp"
+#include "../include/baralho.hpp"
 #include <fstream>
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
+
 
 Usuario::Usuario()
 {

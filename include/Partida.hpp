@@ -14,7 +14,6 @@ using namespace std;
 class Partida
 {
 private:
-
     Usuario *_jogador;
     Usuario *_bot;
     Baralho _baralhoJogador; // copia para fazer os pokemons mortos
@@ -24,7 +23,8 @@ private:
     string _nomeBaralhoJogador, _nomeBaralhoBot;
     vector<Cartas> premiosJogador;
     vector<Cartas> premiosBot;
-    
+    Cartas _cartaEmBatalhaJogador;
+    Cartas _cartaEmBatalhaBot;
 
 public:
 
@@ -45,31 +45,8 @@ public:
      * 
      */
     ~Partida();
-    
-     /**
-     * @brief Faz com que o atacante compre uma carta durante a partida
-     * @param atacante ponteiro que indica o jogador que fez a acao
-     * 
-     */
-    void comprarCarta(Usuario *atacante);
-    
-     /**
-     * @brief Faz com que o atacante realize um ataque
-     * @param cartaAtacando ponteiro da carta que ataca
-     * @param cartaAtacada ponteiro da carta que sofre o dano
-     * @param atacante ponteiro do usuario que faz a acao
-     * 
-     */
-    void Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *atacante);// ataque generico
-    
-     /**
-     * @brief Determina o dano de uma habilidade
-     * @param _atacando Ponteiro que indica a carta que ataca
-     * @param _defendendo ponteiro que indica a carta que defende
-     * @param multiplicador_dano atributo que altera o dano aplicado
-     * @param infos Vector de informacao de tipos
-     * 
-     */
+    void comprarCarta(string nomeJogador);
+    void Ataque(string usuarioAtacante, string usuarioDefensor);       // ataque generico
     //void ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplicador_dano); //, pair<string,int> infos); // ataque especifico de cada tipo de pokemon
     
      /**
@@ -95,6 +72,14 @@ public:
      * 
      */   
     void exibirMao(Usuario *mao);
+    void ganharPremio(string nomeJogador);
+    int numPremio(string nomeJogador);
+    bool estaSemCarta(string nomeJogador);
+    void setCartaEmBatalha(int numCarta, string nomePlayer);
+    bool cartaMorta(string nomeJogador);
+    void matarCarta(string nomeJogador);
+    vector<Cartas> getMaoJogador(string nomeJogador);
+    string getNomeCartaBatalha(string nomeJogador);
+    // Cartas *getCartaBatalha(string nomeJogador);
 };
-
 #endif

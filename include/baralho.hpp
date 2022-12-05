@@ -111,5 +111,6 @@ public:
      * contidas no baralho
      */
     void mostraBaralho();
+    void mostraNomesCartas();
 };
 #endif

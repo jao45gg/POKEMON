@@ -2,7 +2,7 @@
 #define _BARALHO_CPP
 
 #include "../include/baralho.hpp"
-#include "Cartas.hpp"
+#include "../include/Cartas.hpp"
 #include <vector>
 #include <iostream>
 
@@ -133,6 +133,13 @@ void Baralho::setCartas(vector<Cartas> cartasP){
 void Baralho::mostraBaralho(){
     for(int i = 0, ie = (this->getSize()); i < ie; i++){
         (this->_cartas).at(i).mostraCarta();
+    }
+};
+
+void Baralho::mostraNomesCartas(){
+    for(int i = 0, ie = (this->getSize()); i < ie; i++){
+        cout << "   [" << i <<"] " << (this->_cartas).at(i).getNome();
+        cout << endl;
     }
 };
 

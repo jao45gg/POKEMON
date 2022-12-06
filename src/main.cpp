@@ -9,6 +9,7 @@
 #include <sstream>
 #include <cstdlib>
 #include <ctime>
+#include <exception>
 
 
 
@@ -47,6 +48,10 @@ int main()
       cout << "Digite o nome do seu personagem:" << endl
            << endl;
       cin >> nomePersonagem;
+      if(nomePersonagem == "Bot"){
+        cout << dye::red_on_black("NOME INVALIDO, INSIRA NOVAMENTE") << endl;
+        cin >> nomePersonagem;
+      }
       cout << endl;
 
       Usuario jogador = Usuario(nomePersonagem);

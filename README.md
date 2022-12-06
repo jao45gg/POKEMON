@@ -14,59 +14,78 @@ O jogo de cartas Pokémon, funciona de maneira que, dois jogadores (cada um com 
 
 *Essas classes são divididas em Cartas, Baralho, Usuario e Partida, e elas serão explicadas a seguir*
 
-### Cartas
+## Cartas
 
 A classe cartas é responsável por criar as cartas de cada tipo de Pokémon, e por isso, ela recebe os parâmetros relacionado as características desses pokémons.  A classe possui também um construtor, que adiciona um “valor” a cada parâmetro, consequentemente, possui também um destrutor. Possui os métodos get e algumas funções. A função  void ligarEnergia, que acessa e “liga” a energia para o Pokémon, a função void sofrerdano, no qual, intuitivamente, diz que o Pokémon sofre o dano. 
 
 #### Atributos
 
-string *_nome_pokemon;
-int *_qtnd_atks;
-vector<pair<string,int>> _ataque;
-int *_defesa;
-string *_tipo;
-int *_hp;
-bool energiaLigada;
-bool cartaEnergiaUsada;
+- string _nome_pokemon; //Nome dado ao pokemon representado pela carta
+
+- int _qtnd_atks; //Quantidade de habilidades que a carta pode usar
+ 
+- vector<pair<string,int>> _ataque; //Vector que contém as habilidades das cartas
+
+- int _defesa; //Atributo de redução de dano tomado
+
+- string _tipo; //Atributo que define o multiplicador de dano
+
+- int _hp; //Atributo da quantidade de pontos de vida de uma carta
   
 #### Metodos
 
-Cartas(string nome, int qtnd_atks, vector<pair<string,int>> ataque, int defesa, string tipo, int hp);
-Cartas(string tipo);
-~Cartas();
-string getNome();
-pair<string,int> getAtaque(int seleciona_atks);
-int getDefesa();
-string getTipo();
-int getHp();
-vector<pair<string,int>> Cartas::getAtaques();
-void ligarEnergia(Cartas *cartaEnergia, Cartas *pokemon);
-void sofrerDano(int dano);
-bool getEnergia();
+- Cartas(string nome, int qtnd_atks, vector<pair<string,int>> ataque, int defesa, string tipo, int hp); //Construtor para a carta usa de parametros para definir o objeto
 
-### Baralho
+- ~Cartas(); //Destrutor, desfaz os atributos para melhor definição de cartas em uso ou não
+
+-string getNome //Retorna o nome da carta
+
+- pair<string,int> getAtaque(int seleciona_atks); //Retorna habilidade contida na posição do vector, indicado pelo parametro
+
+- int getDefesa(); //Retorna valor da defesa
+
+- string getTipo(); //Retorna tipo
+
+- int getHp(); //Retorna valor do hp
+
+- vector<pair<string,int>> Cartas::getAtaques(); //Retorna vector de habilidades
+
+- void destroiCarta(); //Zera atributos da carta para o não reuso dela
+
+- void sofrerDano(int dano); //Reduz o hp atual (_hp - dano)
+
+- void mostraCarta(); //Imprime o atual estado da carta
+
+## Baralho
 
 A classe baralho é responsável por representar baralhos de cartas Pokémon, utilizando a classe carta para formular um vector de carta associado a um nome em forma de string. Possui dois tipos de construtores, um que constrói um baralho nulo/vazio e outro que constrói um novo baralho a partir de cartas já existentes, um destrutor que limpa o nome e o vetor do baralho. Além disso possui funções get e set para receber e modificar parâmetros da classe, além de uma sobrecarga de operador que permite igualar dois objetos 
 
 #### Atributos
 
-vector<Cartas> _cartas;
-string _nome;
+- vector<Cartas> _cartas; //Vector que contém cartas que compoem o baralho
+
+- string _nome; //Nome do Baralho
 
 #### Metodos
 
-Baralho();
-Baralho(string nomeP, vector<Cartas> &cartasExistentes);
-~Baralho();
-string getNome();
-vector<Cartas> getCartasBaralho();
-void operator = (Baralho &operando);
-void setNome(string nomeP);
-Cartas getCarta(int num);
-void removeCarta(string nome);
-int getSize();
+- Baralho(); //Construtor simples de baralho, faz atribuições genéricas a _nome e _cartas
 
-### Usuario
+- Baralho(string nomeP, vector<Cartas> &cartasExistentes); //Construtor parametrizado de baralho, constrói um baralho personalizado mediante ao vector de cartas
+
+- ~Baralho(); //Destrutor de Baralho, zera os valores de vector e nome
+
+- string getNome(); //Retorna o nome do baralho
+
+- vector<Cartas> getCartasBaralho(); //Retorna o vector de cartas do baralho
+
+- void setNome(string nomeP); //Altera nome do baralho
+- Cartas getCarta(int num); //Retorna carta do vector, na posição de *num*
+
+- void removeCarta(string nome); //Remove uma carta do baralho
+
+- int getSize(); //Retorna o tamanho do baralho
+
+## Usuario
 
 A classe usuário, é responsável por definir os “dados” sobre o jogador, ela define o nome do usuário, a quantidade de vitórias e de derrotas. E também herda de baralho, e implementa o baralho que o mesmo possui. 
 

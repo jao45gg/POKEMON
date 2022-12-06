@@ -98,37 +98,74 @@ vector<Baralho> baralhos;
 
 #### Metodos
 
-Usuario();
-Usuario(std::string nome);
-~Usuario();
-string getNome();
-int getVitorias();
-int getDerrotas();
-vector<Baralho> getBaralhos();
-void setVitorias(int vitorias);
-void setDerrotas(int derrotas);
-void setBaralhos(Baralho baralhos);
-string toString();
+- Usuario();//Construtor generico para a classe
 
-### Partida
+- Usuario(std::string nome);//Construtor para a classe, já atribui valores mediante ao nome
+
+- ~Usuario(); //Destrutor da classe, desatribui valores incializados
+
+- string getNome(); //Retorna o nome do usuario
+
+- int getVitorias(); //Retorna o valor da quantidade de vitorias
+
+- int getDerrotas(); //Retorna o valor da quantidade de derrotas
+
+- vector<Baralho> getBaralhos();//Retorna o vector que contém os baralhos
+
+- void setVitorias(int vitorias);//Aumenta em um a quantidade de vitorias
+
+- void setDerrotas(int derrotas);//Aumenta em um a quantidade de derrotas
+
+- void setBaralhos(Baralho baralhos);//Adiciona um baralho no vector de baralhos
+
+- string toString();//Retorna estado do usuario em forma de string
+
+## Partida
 
 Essa classe gerencia o sistema de combate, todo o sistema envolvido a partir do momento em que dois jogadores entram em batalha. Ou seja, ela gerencia o embaralhamento e manuseio do baralho como a parte de “comer” uma nova carta e a de retirar uma carta da mão do jogador e a de dar uma carta prêmio, ela gerencia a mudança de rodada na alternância entre a vez de cada jogador, a comparação entre o ataque e defesa e vida do Pokémon que ataca e do que defende e etc. 
 
 #### Atributos
 
-Usuario *_jogador;
-Usuario *_bot;
-Baralho _baralhoJogador;
-Baralho _baralhoBot;
-vector<Cartas> mao_jogador;
-vector<Cartas> mao_bot;
-string _nomeBaralhoJogador, _nomeBaralhoBot;
+- Usuario *_jogador;//Usuario que representa o jogador
+
+- Usuario *_bot;//Usuario que representa o bot
+
+- Baralho _baralhoJogador;//Baralho usado pelo jogador
+
+- Baralho _baralhoBot;//Baralho usado pelo bot
+
+- vector<Cartas> mao_jogador;//Cartas presentes na mao do jogador
+
+- vector<Cartas> mao_bot;//Cartas presentes na mao do bot
+
+- string _nomeBaralhoJogador, _nomeBaralhoBot;//Nome do jogador e do bot
 
 #### Metodos
 
-Partida(Usuario *jogador, Usuario *bot, string nomeBaralhoJogador, string nomeBaralhoBot);
-~Partida();
-void comprarCarta(Usuario *atacante);
-void Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *atacante);     
-void ataqueTipo(Cartas *_atacando, Cartas *_defendendo, float multiplicador_dano); 
-void _ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *atacante);
+- Partida(Usuario *jogador, Usuario *bot, string nomeBaralhoJogador, string nomeBaralhoBot);//Construtor parametrizado de partida, inicializa todos os valores necessarios
+
+- ~Partida(); //Destrutor, libera valores alocados
+
+- void comprarCarta(Usuario *atacante);//adiciona cartas a mao do jogador
+
+- void Ataque(string *cartaAtacando, string *cartaAtacada, Usuario *atacante);//aplica um ataque de uma carta em outra carta  
+ 
+- void exibirMao(Usuario *mao);//Imprime a mao do usuario
+
+- void ganharPremio(string nomeJogador);//Adiciona uma carta premio ao usuario
+
+- int numPremio(string nomeJogador);//Retorna a quantidade de cartas premio que o usuario tem
+
+- bool estaSemCarta(string nomeJogador);//Retorna se o usuario tem ou não cartas
+
+- void setCartaEmBatalha(int numCarta, string nomePlayer);//Coloca uma carta na batalha
+
+- bool cartaMorta(string nomeJogador);//Retorna se a carta está morta
+
+- void matarCarta(string nomeJogador);//Mata a carta em batalha
+
+ - vector<Cartas> getMaoJogador(string nomeJogador);//Retorna a mao do jogador
+ 
+- string getNomeCartaBatalha(string nomeJogador);//Retorna o nome da carta em batalha 
+
+- void _ligarEnergia(Cartas *_cartaEnergia, Cartas *_pokemon, Usuario *atacante);//Liga a energia usada em uma habilidade
